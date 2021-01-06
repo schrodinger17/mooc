@@ -3,7 +3,7 @@
     <div class="m-center">
       <h2 class="home-title">
         <i class="title-icon left-icon" />
-        吊／炸／天／全／明／星
+        全明星
         <i class="title-icon right-icon" />
       </h2>
     </div>

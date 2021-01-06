@@ -4,10 +4,13 @@
       <div class="img-box">
         <img :src="item.img" alt="">
       </div>
+      
       <div class="content">
-        <p class="title">
-          {{ item.title }}
-        </p>
+        <router-link to="/">
+          <p class="title" @click="handleTitleClick">
+            {{ item.title }}
+          </p>
+        </router-link>
         <p class="information">
           <span class="iconfont">&#xe681;</span>
           <span class="number">{{ item.views }}</span>
@@ -28,6 +31,13 @@ export default {
       default () {
         return []
       }
+    }
+  },
+  methods: {
+    handleTitleClick ()
+    {
+      // alert("1111");
+      alert(this.list[0].title);
     }
   }
 }

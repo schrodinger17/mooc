@@ -16,19 +16,19 @@
     </div>
 
     <!--  实战导航 -->
-    <course-list :list="lessonData.recommend" title="实／战／推／荐" type="recommend" :position="0" />
+    <course-list :list="lessonData.recommend" title="实战推荐" type="recommend" :position="0" />
 
     <!-- 新上好课 -->
-    <course-list :list="lessonData.new" title="新／上／好／课" type="new" :position="1" />
+    <course-list :list="lessonData.new" title="新上好课" type="new" :position="1" />
 
     <!-- 新手入门 -->
-    <course-list :list="lessonData.easy" title="新／手／入／门" type="easy" :position="2" />
+    <course-list :list="lessonData.easy" title="新手入门" type="easy" :position="2" />
 
     <!-- 技能提升 -->
-    <course-list :list="lessonData.improve" title="技／能／提／升" type="improve" :position="3" />
+    <course-list :list="lessonData.improve" title="技能提升" type="improve" :position="3" />
 
     <!-- 前言技术 -->
-    <course-list :list="lessonData.advanced" title="前／沿／技／术" type="advanced" :position="4" />
+    <course-list :list="lessonData.advanced" title="前沿技术" type="advanced" :position="4" />
 
     <!-- 猿问和手记 -->
     <Article :article="articleList" />

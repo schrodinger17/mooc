@@ -3,7 +3,7 @@
     <div class="m-center">
       <h2 class="home-title">
         <i class="title-icon left-icon" />
-        慕／课／精／英／名／师
+        精英名师
         <i class="title-icon right-icon" />
       </h2>
     </div>

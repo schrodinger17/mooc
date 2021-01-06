@@ -3,7 +3,7 @@
     <div class="waterfull m-center">
       <h2 class="home-title">
         <i class="title-icon left-icon" />
-        精／彩／手／记／及／猿／问
+        精彩手记及猿问
         <i class="title-icon right-icon" />
       </h2>
 
