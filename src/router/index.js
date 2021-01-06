@@ -21,6 +21,7 @@ const CartIndex = () => import('pages/cart/cart.vue') // 购物车路由
 const CartConfirm = () => import('pages/cart/confirm.vue') // 购物车确认路由
 const CartPay = () => import('pages/cart/pay.vue') // 购物车支付路由
 const IntegralIndex = () => import('pages/integral/index.vue') // 积分商场路由
+const Editor = () => import('pages/editor/index.vue')
 
 const routes = [
   {
@@ -133,6 +134,14 @@ const routes = [
     path: '/integral',
     name: 'IntegralIndex',
     component: IntegralIndex
+  },
+  {
+    path: '/editor',
+    name: 'Editor',
+    component: Editor,
+    // meta: {
+    //   requireAuth: true
+    // }
   }
 ]
 const router = new Router({

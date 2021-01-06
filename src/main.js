@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from 'router/index.js'
 import store from './store/index.js'
-
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 // element-ui
 import {
   Icon,
@@ -17,8 +18,11 @@ import {
   MessageBox,
   Pagination,
   Dialog,
-  Scrollbar
+  Scrollbar,
+  Button,
+  Row
 } from 'element-ui'
+Vue.use(mavonEditor)
 Vue.use(Icon)
 Vue.use(Table)
 Vue.use(TableColumn)
@@ -30,6 +34,8 @@ Vue.use(Input)
 Vue.use(Checkbox)
 Vue.use(Pagination)
 Vue.use(Dialog)
+Vue.use(Button)
+Vue.use(Row)
 Vue.use(Scrollbar)
 
 Vue.prototype.$msgbox = MessageBox;

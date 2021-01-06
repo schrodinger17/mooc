@@ -8,10 +8,12 @@
           <input type="text" placeholder="搜索感兴趣的知识和文章">
           <i class="iconfont">&#xe63c;</i>
         </div>
-        <span class="write-btn">写文章</span>
+        <router-link to="/editor">
+          <span class="write-btn">写文章</span>
+        </router-link>
       </div>
     </div>
-
+    <!-- <Editor /> -->
     <!-- 内容部分 -->
     <div class="article-content">
       <div class="nav">
@@ -41,6 +43,7 @@
 <script>
 import Pagination from 'components/pagination/pagination.vue'
 import ArticleList from './list.vue'
+// import Editor from './articleEditor'
 import Empty from 'components/empty/empty.vue'
 import { getArticleNavList, getArticleList } from 'api/article.js'
 import { ERR_OK } from 'api/config.js'
@@ -119,7 +122,8 @@ export default {
   components: {
     ArticleList,
     Pagination,
-    Empty
+    Empty,
+    // Editor
   }
 }
 </script>
