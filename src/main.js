@@ -20,8 +20,8 @@ import {
   Dialog,
   Scrollbar,
   Button,
-  Row,
-  Card
+  Card,
+  Row
 } from 'element-ui'
 
 import VueVideoPlayer from 'vue-video-player'
@@ -48,8 +48,8 @@ Vue.use(Checkbox)
 Vue.use(Pagination)
 Vue.use(Dialog)
 Vue.use(Button)
-Vue.use(Row)
 Vue.use(Card)
+Vue.use(Row)
 Vue.use(Scrollbar)
 
 Vue.prototype.$msgbox = MessageBox;
