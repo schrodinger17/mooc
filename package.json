@@ -25,6 +25,7 @@
     "koa-router": "^8.0.8",
     "koa-session": "^5.13.1",
     "lodash": "^4.17.19",
+    "mavon-editor": "^2.9.1",
     "mongoose": "^5.9.7",
     "nodemon": "^2.0.2",
     "stylus": "^0.54.5",
