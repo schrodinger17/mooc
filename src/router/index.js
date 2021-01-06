@@ -22,6 +22,8 @@ const CartConfirm = () => import('pages/cart/confirm.vue') // 购物车确认路
 const CartPay = () => import('pages/cart/pay.vue') // 购物车支付路由
 const IntegralIndex = () => import('pages/integral/index.vue') // 积分商场路由
 const Editor = () => import('pages/editor/index.vue')
+const Video = () => import('pages/video-player/index.vue')
+
 
 const routes = [
   {
@@ -139,6 +141,14 @@ const routes = [
     path: '/editor',
     name: 'Editor',
     component: Editor,
+    // meta: {
+    //   requireAuth: true
+    // }
+  },
+  {
+    path: '/video',
+    name: 'video-player',
+    component: Video,
     // meta: {
     //   requireAuth: true
     // }

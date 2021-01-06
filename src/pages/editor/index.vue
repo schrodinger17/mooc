@@ -7,7 +7,7 @@
         placeholder="请输入标题"
       ></el-input>
     </el-row>
-    <el-row style="height: calc(100vh - 140px);">
+    <el-row style="height: calc(85vh - 140px);">
       <mavon-editor
         ref="md"
         v-model="article.articleContentMd"

@@ -20,8 +20,21 @@ import {
   Dialog,
   Scrollbar,
   Button,
-  Row
+  Row,
+  Card
 } from 'element-ui'
+
+import VueVideoPlayer from 'vue-video-player'
+
+// require videojs style
+import 'video.js/dist/video-js.css'
+// import 'vue-video-player/src/custom-theme.css'
+
+Vue.use(VueVideoPlayer, /* {
+  options: global default options,
+  events: global videojs events
+} */)
+
 Vue.use(mavonEditor)
 Vue.use(Icon)
 Vue.use(Table)
@@ -36,6 +49,7 @@ Vue.use(Pagination)
 Vue.use(Dialog)
 Vue.use(Button)
 Vue.use(Row)
+Vue.use(Card)
 Vue.use(Scrollbar)
 
 Vue.prototype.$msgbox = MessageBox;
