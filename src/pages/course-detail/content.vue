@@ -30,6 +30,9 @@
 <script>
 import DetailTips from './tips.vue'
 import DetailTags from './tags.vue'
+import Chapter from 'components/chapter/chapter.vue'
+import QuestionAnswer  from 'components/question-answer/question-answer.vue'
+import Comment from 'components/comment/comment.vue'
 export default {
   props: {
     data: {
@@ -60,13 +63,14 @@ export default {
     catalogList () {
       return this.data.catalog || {}
     }
+    
   },
   components: {
     DetailTips,
     DetailTags,
-    Chapter: () => import('components/chapter/chapter.vue'),
-    QuestionAnswer: () => import('components/question-answer/question-answer.vue'),
-    Comment: () => import('components/comment/comment.vue')
+    Chapter,
+    QuestionAnswer,
+    Comment
   }
 }
 </script>

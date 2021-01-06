@@ -30,10 +30,12 @@ export default {
       const params = {
         id: this.$route.params.id
       }
+      // console.log(this.$route.params.id)
       getLessonDetail(params).then(res => {
         let { code, data, msg } = res
         if (code === ERR_OK) {
           this.courseDetail = data
+          
         } else {
           this.courseDetail = {}
           this.$message.error(msg)

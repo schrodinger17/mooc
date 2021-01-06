@@ -30,6 +30,9 @@
 <script>
 import DetailScore from './score.vue'
 import DetailTeacher from './teacher.vue'
+import Chapter from 'components/chapter/chapter.vue'
+// import QuestionAnswer  from 'components/question-answer/question-answer.vue'
+import Comment from 'components/comment/comment.vue'
 export default {
   props: {
     data: {
@@ -60,8 +63,8 @@ export default {
   components: {
     DetailScore,
     DetailTeacher,
-    Chapter: () => import('components/chapter/chapter.vue'),
-    Comment: () => import('components/comment/comment.vue')
+    Chapter,
+    Comment
   }
 }
 </script>

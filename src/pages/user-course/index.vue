@@ -31,6 +31,9 @@
 </template>
 <script>
 import CourseHeader from './header.vue'
+import Course from'./course.vue'
+import Question from './question.vue'
+import Article from './article.vue'
 export default {
   data () {
     return {
@@ -64,9 +67,9 @@ export default {
   },
   components: {
     CourseHeader,
-    Course: () => import('./course.vue'),
-    Question: () => import('./question.vue'),
-    Article: () => import('./article.vue')
+    Course,
+    Question,
+    Article
   }
 }
 </script>
