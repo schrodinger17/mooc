@@ -24,7 +24,7 @@
 
 <script>
   // custom skin css
-//   import '../../assets/stylus/video-theme.css'
+  import 'assets/css/video-theme.css'
   
   export default {
     data () {
