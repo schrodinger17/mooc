@@ -5,6 +5,12 @@ import store from './store/index.js'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 import 'element-ui/lib/theme-chalk/index.css';
+import 'github-markdown-css/github-markdown.css'
+import 'font-awesome/css/font-awesome.min.css'
+// import 'highlight.js/styles/default.css';
+// import Highlight from 'vue-markdown-highlight'
+// Vue.use(Highlight)
+
 
 // element-ui
 import ElementUI from 'element-ui'

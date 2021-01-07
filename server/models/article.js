@@ -24,7 +24,11 @@ const ArticleSchema = new Schema({
   type: {
     text: String,
     code: Number
-  }
+  },
+  abstract: String,
+  content_html: String,
+  content_md: String
+
 })
 
 const articleModel = mongoose.model('article', ArticleSchema)

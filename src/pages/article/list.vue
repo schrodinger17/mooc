@@ -6,11 +6,9 @@
       </div>
       
       <div class="content">
-        <router-link to="/">
-          <p class="title" @click="handleTitleClick">
-            {{ item.title }}
-          </p>
-        </router-link>
+        <p class="title" @click="handleTitleClick(item.id)">
+          {{ item.title }}
+        </p>
         <p class="information">
           <span class="iconfont">&#xe681;</span>
           <span class="number">{{ item.views }}</span>
@@ -23,7 +21,6 @@
   </ul>
 </template>
 <script>
-
 export default {
   props: {
     list: {
@@ -34,10 +31,11 @@ export default {
     }
   },
   methods: {
-    handleTitleClick ()
+    handleTitleClick (id)
     {
       // alert("1111");
-      alert(this.list[0].title);
+      this.$router.push({path:`/article/${id}`}).catch(err => {err})
+      // alert(this.list[0].title);
     }
   }
 }

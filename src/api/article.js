@@ -10,6 +10,11 @@ export function getArticleList (params) {
     params
   })
 }
+export function getArticle (params) {
+  return axios.get('/api/article/', {
+    params
+  })
+}
 
 export function newArticle (params) {
   return axios.post('/api/article/', {

@@ -73,4 +73,79 @@ router.get('/list', async (ctx) => {
   }
 })
 
+router.get('/', async (ctx) => {
+  const { id } = ctx.query
+  try {
+    const where = {}
+    if (id) {
+      where['id'] = id
+    }
+    const result = await Article.find(where)
+    if (result) {
+      ctx.body = {
+        code: ERR_OK,
+        msg: '获取文章数据成功',
+        data: {
+          article: result,
+        }
+      }
+    } else {
+      ctx.body = {
+        code: -1,
+        msg: '获取文章数据失败',
+        data: {
+          article:{}
+        }
+      }
+    }
+  } catch (e) {
+    ctx.body = {
+      code: -1,
+      msg: '服务器异常',
+      data: {
+        list: [],
+        total: 0
+      }
+    }
+  }
+})
+
+router.post('/', async (ctx) => {
+  const { id } = ctx.query
+  try {
+    const where = {}
+    if (id) {
+      where['id'] = id
+    }
+    const result = await Article.find(where)
+    if (result) {
+      ctx.body = {
+        code: ERR_OK,
+        msg: '推送文章数据成功',
+        data: {
+          article: result,
+        }
+      }
+    } else {
+      ctx.body = {
+        code: -1,
+        msg: '推送文章数据失败',
+        data: {
+          article:{}
+        }
+      }
+    }
+  } catch (e) {
+    ctx.body = {
+      code: -1,
+      msg: '服务器异常',
+      data: {
+        list: [],
+        total: 0
+      }
+    }
+  }
+})
+
+
 export default router

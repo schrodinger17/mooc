@@ -21,6 +21,7 @@ import CartPay from 'pages/cart/pay.vue' // 购物车支付路由
 import IntegralIndex from 'pages/integral/index.vue'// 积分商场路由
 import Editor from 'pages/editor/index.vue'
 import Video from 'pages/video-player/index.vue'
+import ArticleDetail from 'pages/article-detail/index.vue'
 
 Vue.use(Router)
 
@@ -151,6 +152,11 @@ const routes = [
     path: '/article',
     name: 'ArticleIndex',
     component:ArticleIndex
+  },
+  {
+    path: '/article/:id',
+    name: 'ArticleDetail',
+    component:ArticleDetail,
   },
   {
     path: '/integral',
