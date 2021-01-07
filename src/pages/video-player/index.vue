@@ -1,77 +1,233 @@
 <template>
-  <el-card class="media-card" shadow="hover">
-    <div class="player">
-      <video-player ref="videoPlayer"
+  <div class="video">
+    <el-container>
+      <el-header>
+        <el-card>
+          <el-page-header :content="chapter" @back="goBack">
+          </el-page-header>
+        </el-card>
+      </el-header>
+      <el-main>
+        <el-row type="flex" class="row-bg" justify="center">
+          <div>
+            <video-player ref="videoPlayer"
+                          :options="playerOptions"
+                          :playsinline="true"
+                          @play="onPlayerPlay($event)"
+                          @pause="onPlayerPause($event)"
+                          @ended="onPlayerEnded($event)"
+            >
+            </video-player>
+          </div>
+        </el-row>
+      </el-main>
+      <el-container>
+        <el-main>
+          <div class="course-detail-content">
+            <!-- 导航部分 -->
+            <div class="detail-nav">
+              <ul class="m-center">
+                <li
+                  v-for="(nav,index) in navList"
+                  :key="index"
+                  class="nav-item"
+                  :class="{active: index==currentNavIndex}"
+                  @click="currentNavIndex = index"
+                >
+                  {{ nav.title }}
+                </li>
+              </ul>
+            </div>
 
-                    :options="playerOptions"
-                    :playsinline="true"
-                    @play="onPlayerPlay($event)"
-                    @pause="onPlayerPause($event)"
-                    @ended="onPlayerEnded($event)"
-                    @loadeddata="onPlayerLoadeddata($event)"
-                    @waiting="onPlayerWaiting($event)"
-                    @playing="onPlayerPlaying($event)"
-                    @timeupdate="onPlayerTimeupdate($event)"
-                    @canplay="onPlayerCanplay($event)"
-                    @canplaythrough="onPlayerCanplaythrough($event)"
-                    @ready="playerReadied"
-                    @statechanged="playerStateChanged($event)"
-      >
-      </video-player>
-    </div>
-  </el-card>
+            <!-- 内容部分 -->
+            <div class="detail-information m-center">
+              <div class="information-left">
+                <component :is="componentName" :catalog="catalogList" />
+              </div>
+            </div>
+          </div>
+        </el-main>
+      </el-container>
+    </el-container>
+  </div>
 </template>
 
 <script>
   // custom skin css
-  import 'assets/css/video-theme.css'
-  
+  // import 'assets/css/video-theme.css'
+  import { getLessonDetail } from 'api/lesson.js'
+  import { ERR_OK } from 'api/config.js'
+  import Chapter from 'components/chapter/chapter.vue'
+  import QuestionAnswer  from 'components/question-answer/question-answer.vue'
+  import Comment from 'components/comment/comment.vue'
   export default {
     data () {
       return {
+        fullHeight: document.documentElement.clientHeight,
+        fullWidth: document.documentElement.clientWidth,
+        chapter: this.$route.params.chapter,
+        currentNavIndex: 0,
+        navList: [],
+        courseDetail: {
+          base: {}
+        },
         // videojs options
         playerOptions: {
-          height: '360',
-          autoplay: true,
-          muted: true,
-          language: 'en',
-          playbackRates: [0.7, 1.0, 1.5, 2.0],
+          // height: document.documentElement.clientWidth * 2 / 3 * 9 / 16,
+          // width: document.documentElement.clientWidth * 2 / 3,
+          playbackRates: [0.8, 1.0, 1.5, 2.0], // 播放速度
+          autoplay: false, // 如果true,浏览器准备好时开始回放。
+          muted: false, // 默认情况下将会消除任何音频。
+          loop: false, // 导致视频一结束就重新开始。
+          preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
+          language: 'zh-CN',
+          // aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+          // fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
           sources: [{
-            type: "video/mp4",
-            // mp4
-            src: "http://vjs.zencdn.net/v/oceans.mp4",
-            // webm
-            // src: "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
+            src: "http://vjs.zencdn.net/v/oceans.mp4", // 路径
+            type: 'video/mp4' // 类型
           }],
-          poster: "https://surmon-china.github.io/vue-quill-editor/static/images/surmon-1.jpg",
+          poster: "", // 你的封面地址
+          
+          notSupportedMessage: '此视频暂无法播放，请稍后再试', // 允许覆盖Video.js无法播放媒体源时显示的默认信息。
+          controlBar: {
+            timeDivider: true,
+            durationDisplay: true,
+            remainingTimeDisplay: true,
+            fullscreenToggle: true // 全屏按钮
+          }
         }
+        // playerOptions: {
+        //   height: '360',
+        //   autoplay: true,
+        //   muted: true,
+        //   language: 'en',
+        //   playbackRates: [0.7, 1.0, 1.5, 2.0],
+        //   sources: [{
+        //     type: "video/mp4",
+        //     // mp4
+        //     src: "http://vjs.zencdn.net/v/oceans.mp4",
+        //     // webm
+        //     // src: "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
+        //   }],
+        //   poster: "https://surmon-china.github.io/vue-quill-editor/static/images/surmon-1.jpg",
+        // }
       }
     },
+    components: {
+      Chapter,
+      QuestionAnswer,
+      Comment
+    },
+    created () {
+    // 初始化导航数据
+      // if( this.fullWidth && this.fullHeight)
+      // {
+      //   if(this.fullWidth * 9 / 16 < this.fullHeight)
+      //   {
+      //     this.playerOptions.width = document.documentElement.clientWidth * 2 / 3
+      //     this.playerOptions.height = document.documentElement.clientWidth * 2 / 3 * 9 / 16
+      //   }
+      //   else{ 
+      //     this.playerOptions.width = document.documentElement.clientHeight * 2 / 3
+      //     this.playerOptions.height = document.documentElement.clientHeight * 2 / 3 * 9 / 16
+      //   }
+          
+      // }
+      window.addEventListener('resize', this.handleResize)
+
+      this.navList = [
+        { title: '课程章节', componentName: 'chapter' },
+        { title: '问答', componentName: 'question-answer' },
+        { title: '用户评价', componentName: 'comment' }
+      ]
+    },
+    beforeDestroy () {
+      window.removeEventListener('resize', this.handleResize)
+    },
     mounted () {
+      this.getCourseDetailData()
       // console.log('this is current player instance object', this.player)
-      setTimeout(() => {
-        console.log('dynamic change options', this.player)
-        // change src
-        // this.playerOptions.sources[0].src = 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm';
-        // change item
-        // this.$set(this.playerOptions.sources, 0, {
-        //   type: "video/mp4",
-        //   src: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
-        // })
-        // change array
-        // this.playerOptions.sources = [{
-        //   type: "video/mp4",
-        //   src: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
-        // }]
-        this.player.muted(false)
-      }, 5000)
+      // setTimeout(() => {
+      //   // console.log('dynamic change options', this.player)
+      //   // change src
+      //   // this.playerOptions.sources[0].src = 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm';
+      //   // change item
+      //   // this.$set(this.playerOptions.sources, 0, {
+      //   //   type: "video/mp4",
+      //   //   src: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
+      //   // })
+      //   // change array
+      //   // this.playerOptions.sources = [{
+      //   //   type: "video/mp4",
+      //   //   src: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
+      //   // }]
+      //   this.player.muted(false)
+      // }, 5000)
     },
     computed: {
+      componentName () {
+        return this.navList[this.currentNavIndex].componentName
+      },
+      catalogList () {
+        return this.courseDetail.catalog || {}
+      },
       player () {
         return this.$refs.videoPlayer.player
       }
     },
+    watch:{
+      $route (to, from){
+        this.chapter = this.$route.params.chapter
+        console.log(from.path);//从哪来
+        console.log(to.path);//到哪去
+        // this.playerOptions.sources.src=...  为不同的课程设置不同的视频链接和poster
+      }
+    },
     methods: {
+      handleResize ()
+      { 
+        // this.fullHeight = document.documentElement.clientHeight
+        // this.fullWidth = document.documentElement.clientWidth
+        // if( this.fullWidth && this.fullHeight)
+        // {
+        //   if(this.fullWidth * 9 / 16 < this.fullHeight)
+        //   {
+        //     this.playerOptions.width = document.documentElement.clientWidth * 2 / 3
+        //     this.playerOptions.height = document.documentElement.clientWidth * 2 / 3 * 9 / 16
+        //   }
+        //   else{ 
+        //     this.playerOptions.width = document.documentElement.clientHeight * 2 / 3
+        //     this.playerOptions.height = document.documentElement.clientHeight * 2 / 3 * 9 / 16
+        //   }
+          
+        // }
+          
+        // console.log(this.fullWidth)
+      },
+      goBack () {
+        console.log('go back');
+        this.$router.push({path : `/course/${this.$route.params.id}`})
+      },
+      getCourseDetailData () {
+      const params = {
+        id: this.$route.params.id
+      }
+      // console.log(this.$route.params.id)
+      getLessonDetail(params).then(res => {
+        let { code, data, msg } = res
+        if (code === ERR_OK) {
+          this.courseDetail = data
+          
+        } else {
+          this.courseDetail = {}
+          this.$message.error(msg)
+        }
+      }).catch (() => {
+        this.courseDetail = {}
+        this.$message.error('接口异常')
+      })
+    },
       // listen event
       onPlayerPlay (player) {
         console.log('player play!', player)
@@ -82,41 +238,121 @@
       onPlayerEnded (player) {
         console.log('player ended!', player)
       },
-      onPlayerLoadeddata (player) {
-        console.log('player Loadeddata!', player)
-      },
-      onPlayerWaiting (player) {
-        console.log('player Waiting!', player)
-      },
-      onPlayerPlaying (player) {
-        console.log('player Playing!', player)
-      },
-      onPlayerTimeupdate (player) {
-        console.log('player Timeupdate!', player.currentTime())
-      },
-      onPlayerCanplay (player) {
-        console.log('player Canplay!', player)
-      },
-      onPlayerCanplaythrough (player) {
-        console.log('player Canplaythrough!', player)
-      },
-      // or listen state event
-      playerStateChanged (playerCurrentState) {
-        console.log('player current update state', playerCurrentState)
-      },
-      // player is ready
-      playerReadied (player) {
-        // seek to 10s
-        console.log('example player 1 readied', player)
-        player.currentTime(10)
-        // console.log('example 01: the player is readied', player)
-      }
+      // onPlayerLoadeddata (player) {
+      //   console.log('player Loadeddata!', player)
+      // },
+      // onPlayerWaiting (player) {
+      //   console.log('player Waiting!', player)
+      // },
+      // onPlayerPlaying (player) {
+      //   console.log('player Playing!', player)
+      // },
+      // onPlayerTimeupdate (player) {
+      //   console.log(this.$route.params.id)
+      //   console.log('player Timeupdate!', player.currentTime())
+      // },
+      // onPlayerCanplay (player) {
+      //   console.log('player Canplay!', player)
+      // },
+      // onPlayerCanplaythrough (player) {
+      //   console.log('player Canplaythrough!', player)
+      // },
+      // // or listen state event
+      // playerStateChanged (playerCurrentState) {
+      //   console.log('player current update state', playerCurrentState)
+      // },
+      // // player is ready
+      // playerReadied (player) {
+      //   // seek to 10s
+      //   console.log('example player 1 readied', player)
+      //   player.currentTime(10)
+      //   // console.log('example 01: the player is readied', player)
+      // }
     }
   }
 </script>
 
+
+<style lang="stylus" scoped>
+  .course-detail-content
+    .detail-nav
+      position: relative;
+      height: 68px;
+      line-height: 68px;
+      box-shadow: 0 4px 8px 0 rgba(7,17,27,0.15);
+      .nav-item
+        position: relative;
+        display: inline-block;
+        margin-right: 80px;
+        font-size: 16px;
+        color: #1c1f21;
+        font-weight: 700;
+        cursor: pointer;
+        &.active
+          color: #f20d0d;
+          &::after {
+            content: '';
+            display: block;
+            margin: -15px auto 0px;
+            width: 16px;
+            height: 3px;
+            border-radius: 15px;
+            background-color: #f20d0d;
+          }
+    .detail-information
+      margin-top: 36px;
+      margin-bottom: 36px;
+      display: flex;
+      align-items: top;
+      .information-left
+        flex: 1;
+      .information-right
+        margin-left: 32px;
+        flex: 0 0 320px;
+        width: 320px;
+        & > div
+          margin-bottom: 36px;
+</style>
+
+
 <style scoped>
-.media-card {
-    width: 1000px;
+.el-row {
+    margin-bottom: 20px;
+
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
+  .el-header, .el-footer {
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+    line-height: 10px;
+  }
+  
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    text-align: center;
+    line-height: 200px;
+  }
+   
+  body > .el-container {
+    margin-bottom: 40px;
+  }
+  
+  .el-container:nth-child(5) .el-aside,
+  .el-container:nth-child(6) .el-aside {
+    line-height: 260px;
+  }
+  
+  .el-container:nth-child(7) .el-aside {
+    line-height: 320px;
   }
 </style>
+

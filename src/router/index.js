@@ -166,7 +166,7 @@ const routes = [
     // }
   },
   {
-    path: '/video',
+    path: '/video/:id/:chapter',
     name: 'video-player',
     component: Video,
     // meta: {

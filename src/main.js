@@ -4,25 +4,33 @@ import router from 'router/index.js'
 import store from './store/index.js'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+import 'element-ui/lib/theme-chalk/index.css';
+
 // element-ui
-import {
-  Icon,
-  Table,
-  TableColumn,
-  Form,
-  FormItem,
-  RadioGroup,
-  Radio,
-  Input,
-  Checkbox,
-  MessageBox,
-  Pagination,
-  Dialog,
-  Scrollbar,
-  Button,
-  Card,
-  Row
-} from 'element-ui'
+import ElementUI from 'element-ui'
+// import {
+//   Icon,
+//   Table,
+//   TableColumn,
+//   Form,
+//   FormItem,
+//   RadioGroup,
+//   Radio,
+//   Input,
+//   Checkbox,
+//   MessageBox,
+//   Pagination,
+//   Dialog,
+//   Scrollbar,
+//   Button,
+//   Card,
+//   Row,
+//   Container,
+//   Header,
+//   Main,
+//   Footer,
+//   Col,
+// } from 'element-ui'
 
 import VueVideoPlayer from 'vue-video-player'
 
@@ -36,25 +44,30 @@ Vue.use(VueVideoPlayer, /* {
 } */)
 
 Vue.use(mavonEditor)
-Vue.use(Icon)
-Vue.use(Table)
-Vue.use(TableColumn)
-Vue.use(Form)
-Vue.use(FormItem)
-Vue.use(Radio)
-Vue.use(RadioGroup)
-Vue.use(Input)
-Vue.use(Checkbox)
-Vue.use(Pagination)
-Vue.use(Dialog)
-Vue.use(Button)
-Vue.use(Card)
-Vue.use(Row)
-Vue.use(Scrollbar)
-
-Vue.prototype.$msgbox = MessageBox;
-Vue.prototype.$alert = MessageBox.alert;
-Vue.prototype.$confirm = MessageBox.confirm;
+// Vue.use(Icon)
+// Vue.use(Table)
+// Vue.use(TableColumn)
+// Vue.use(Form)
+// Vue.use(FormItem)
+// Vue.use(Radio)
+// Vue.use(RadioGroup)
+// Vue.use(Input)
+// Vue.use(Checkbox)
+// Vue.use(Pagination)
+// Vue.use(Dialog)
+// Vue.use(Button)
+// Vue.use(Card)
+// Vue.use(Row)
+// Vue.use(Container)
+// Vue.use(Header)
+// Vue.use(Main)
+// Vue.use(Footer)
+// Vue.use(Col)
+// Vue.use(Scrollbar)
+Vue.use(ElementUI)
+Vue.prototype.$msgbox = ElementUI.MessageBox;
+Vue.prototype.$alert = ElementUI.MessageBox.alert;
+Vue.prototype.$confirm = ElementUI.MessageBox.confirm;
 
 // register custom base component
 import Mooc from './register.js'

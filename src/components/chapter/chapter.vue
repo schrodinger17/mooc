@@ -11,7 +11,7 @@
         {{ item.introduction }}
       </p>
       <ul>
-        <li v-for="(term, index) in item.term" :key="index" class="term-item">
+        <li v-for="(term, index) in item.term" :key="index" class="term-item" @click="handleTitleClick(term)">
           <p>
             <span class="iconfont play">&#xe615;</span>
             <span>{{ term.title }}({{ term.seconds | filterSecond }})</span>
@@ -48,6 +48,14 @@ export default {
     filterSecond (val) {
       return normalSeconds(val)
     }
+  },
+  methods: {
+    handleTitleClick (term)
+    {
+      this.$router.push({ path: `/video/${this.$route.params.id}/${term.title}`}).catch(err => {err})
+    }
+    
+    
   }
 }
 </script>
