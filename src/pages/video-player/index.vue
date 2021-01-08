@@ -7,19 +7,17 @@
           </el-page-header>
         </el-card>
       </el-header>
-      <el-main>
-        <el-row type="flex" class="row-bg" justify="center">
-          <div>
-            <video-player ref="videoPlayer"
-                          :options="playerOptions"
-                          :playsinline="true"
-                          @play="onPlayerPlay($event)"
-                          @pause="onPlayerPause($event)"
-                          @ended="onPlayerEnded($event)"
-            >
-            </video-player>
-          </div>
-        </el-row>
+      <el-main style="text-align: left;width: 990px;margin: 35px auto 0 auto">
+        <div>
+          <video-player ref="videoPlayer"
+                        :options="playerOptions"
+                        :playsinline="true"
+                        @play="onPlayerPlay($event)"
+                        @pause="onPlayerPause($event)"
+                        @ended="onPlayerEnded($event)"
+          >
+          </video-player>
+        </div>
       </el-main>
       <el-container>
         <el-main>
@@ -40,7 +38,7 @@
             </div>
 
             <!-- 内容部分 -->
-            <div class="detail-information m-center">
+            <div class="detail-information m-center" style="text-align: left;width: 990px;margin: 35px auto 0 auto">
               <div class="information-left">
                 <component :is="componentName" :catalog="catalogList" />
               </div>
@@ -82,7 +80,7 @@
           preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
           language: 'zh-CN',
           // aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
-          // fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+          fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
           sources: [{
             src: "http://vjs.zencdn.net/v/oceans.mp4", // 路径
             type: 'video/mp4' // 类型
