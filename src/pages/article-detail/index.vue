@@ -10,11 +10,17 @@
         </div>
       </div>
     </el-card>
+    <el-container style="text-align: left;width: 990px;margin: 35px auto 0 auto">
+      <CommentList></CommentList>
+    </el-container>
+    <Comment></Comment>
   </div>
 </template>
 
 <script>
 // import 'github-markdown-css/github-markdown.css'
+import Comment from './comment.vue'
+import CommentList from './comment-list.vue'
 import {ERR_OK} from "api/config.js";
 import {getArticle} from "api/article.js";
 export default {
@@ -26,6 +32,10 @@ export default {
     },
     mounted () {
       this.getArticleData()
+    },
+    components: {
+      Comment,
+      CommentList
     },
     methods: {
       getArticleData () {

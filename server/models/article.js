@@ -1,5 +1,7 @@
 import mongoose from 'mongoose'
 import articleData from '../initData/article.js'
+import articleCommentData from '../initData/articleComment.js'
+import articleCommentModel from './articleComment.js'
 import { getGuid } from '../../src/utils/utils.js'
 const Schema = mongoose.Schema
 const ArticleSchema = new Schema({
@@ -38,7 +40,15 @@ articleModel.find((err, data) => {
     articleData.forEach(item => {
       item.id = getGuid()
       articleModel.create(item)
+
+      articleCommentModel.create({
+        id: getGuid(),
+        articleid: item.id,
+        list: articleCommentData
+      })
     })
+
+    
   }
 })
 

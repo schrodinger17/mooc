@@ -16,6 +16,19 @@ export function getArticle (params) {
   })
 }
 
+export function getArticleComment (params) {
+  return axios.get('/api/article/comment', {
+    params
+  })
+}
+
+export function newArticleComment (params) {
+  return axios.post('/api/article/comment', {
+    params
+  })
+}
+
+//undone
 export function newArticle (params) {
   return axios.post('/api/article/', {
     params

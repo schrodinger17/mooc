@@ -1,6 +1,7 @@
 import Router from 'koa-router'
 import ArticleType from '../models/articleType.js'
 import Article from '../models/article.js'
+import ArticleComment from '../models/articleComment.js'
 import { ERR_OK, SIZE } from '../config.js'
 const router = new Router({
   prefix: '/article'
@@ -103,13 +104,96 @@ router.get('/', async (ctx) => {
       code: -1,
       msg: '服务器异常',
       data: {
-        list: [],
-        total: 0
+        article:{}
       }
     }
   }
 })
 
+router.get('/comment', async (ctx) => {
+  const { id } = ctx.query
+  if (!id) {
+    ctx.body = {
+      code: -1,
+      msg: '缺少关键参数id'
+    }
+    return false
+  }
+  try {
+    const result = await ArticleComment.findOne({
+      articleid: id
+    })
+    if (result) {
+      ctx.body = {
+        code: ERR_OK,
+        msg: "获取课程评论数据成功",
+        data: result.list
+      }
+    } else {
+      ctx.body = {
+        code: -1,
+        msg: '获取课程评论数据失败',
+      }
+    }
+  } catch (e) {
+    ctx.body = {
+      code: -1,
+      msg: e.message || '服务器异常'
+    }
+  }
+})
+
+router.post('/comment', async (ctx) => {
+  const { id, params } = ctx.request.body.params
+  console.log(ctx.request.body)
+  console.log(id)
+  if (!id) {
+    ctx.body = {
+      code: -1,
+      msg: '缺少关键参数id'
+    }
+    return false
+  }
+  try {
+    let res = await ArticleComment.findOne({
+      articleid: id
+    })
+    let list = []
+    if(res)
+    {
+      list = res.list
+    }
+    list.push(params)
+
+    await ArticleComment.updateOne({
+      articleid: id
+    }, {list:list}, function (err, res)
+    {
+      if(err)
+      {
+        ctx.body = {
+          code: -1,
+          msg: '更新课程评论数据失败',
+        }
+      }
+      else{
+        console.log(res)
+        ctx.body = {
+          code: ERR_OK,
+          msg: "更新课程评论数据成功",
+        }
+      }
+    })
+  } catch (e) {
+    ctx.body = {
+      code: -1,
+      msg: e.message || '服务器异常'
+    }
+  }
+})
+
+
+// not Down yet!!!!
 router.post('/', async (ctx) => {
   const { id } = ctx.query
   try {
