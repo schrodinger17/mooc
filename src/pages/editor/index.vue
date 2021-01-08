@@ -135,6 +135,14 @@ import {ERR_OK} from 'api/config.js'
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
+          if(!this.article.articleTitle)
+          {
+            this.$message({
+              type:"warning",
+              message:"你必须输入文章的标题！"
+            })
+            return
+          }
           let params = {
                 // id: this.article.id,
                 type:{
@@ -145,7 +153,7 @@ import {ERR_OK} from 'api/config.js'
                 content_md: value,
                 content_html: render,
                 abstract: this.article.articleAbstract,
-                img:"https://www.imooc.com/static/img/article/cover/pic8.jpg",
+                img:(!this.article.articleCover) ? this.article.articleCover : "https://www.imooc.com/static/img/article/cover/pic8.jpg",
                 time: this.getTime(),
                 tag: this.dynamicTags.join(','),
               }

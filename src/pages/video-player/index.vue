@@ -206,8 +206,9 @@
         // console.log(this.fullWidth)
       },
       goBack () {
-        console.log('go back');
-        this.$router.push({path : `/course/${this.$route.params.id}`})
+        // console.log('go back');
+        // this.$router.push({path : `/course/${this.$route.params.id}`})
+        this.$router.go(-1)
       },
       getCourseDetailData () {
       const params = {
