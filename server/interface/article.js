@@ -3,6 +3,7 @@ import ArticleType from '../models/articleType.js'
 import Article from '../models/article.js'
 import ArticleComment from '../models/articleComment.js'
 import { ERR_OK, SIZE } from '../config.js'
+import {getGuid} from '../../src/utils/utils.js'
 const router = new Router({
   prefix: '/article'
 })
@@ -193,40 +194,34 @@ router.post('/comment', async (ctx) => {
 })
 
 
-// not Down yet!!!!
 router.post('/', async (ctx) => {
-  const { id } = ctx.query
+  const { params } = ctx.request.body
+  params.id = getGuid()
+  console.log(params)
   try {
-    const where = {}
-    if (id) {
-      where['id'] = id
-    }
-    const result = await Article.find(where)
-    if (result) {
+    const result = await Article.create(params)
+    console.log(result)
+    const res = await ArticleComment.create({
+      id:getGuid(),
+      articleid:params.id
+    })
+    // console.log(res)
+    if (result && res) {
       ctx.body = {
         code: ERR_OK,
         msg: '推送文章数据成功',
-        data: {
-          article: result,
-        }
+        id:result.id
       }
     } else {
       ctx.body = {
         code: -1,
         msg: '推送文章数据失败',
-        data: {
-          article:{}
-        }
       }
     }
   } catch (e) {
     ctx.body = {
       code: -1,
       msg: '服务器异常',
-      data: {
-        list: [],
-        total: 0
-      }
     }
   }
 })

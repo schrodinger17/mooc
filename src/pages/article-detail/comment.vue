@@ -43,7 +43,7 @@ export default {
     var year = date.getFullYear(); //获取年   
     var month = date.getMonth()+1;//获取月
     var day = date.getDate(); //获取当日  
-    var time = year+"-"+month+"-"+day; //组合时间  
+    var time = year+"-"+month.toString().padStart(2, '0')+"-"+day.toString().padStart(2, '0'); //组合时间  
     return time
    },
 	submit_click (){

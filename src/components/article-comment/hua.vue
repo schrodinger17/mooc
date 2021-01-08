@@ -143,6 +143,11 @@
             var drag = document;
             drag.addEventListener('mousemove', this.events, false);
             drag.addEventListener('mouseup', this.events, false);
+        },
+        destroyed ()
+        {
+            document.addEventListener('mousemove', this.events, false);
+            document.addEventListener('mouseup', this.events, false);
         }
     }
 </script>

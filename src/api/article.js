@@ -28,7 +28,6 @@ export function newArticleComment (params) {
   })
 }
 
-//undone
 export function newArticle (params) {
   return axios.post('/api/article/', {
     params

@@ -53,6 +53,7 @@
 <script>
   // custom skin css
   // import 'assets/css/video-theme.css'
+  import {getUserInfo} from 'utils/cache.js'
   import { getLessonDetail } from 'api/lesson.js'
   import { ERR_OK } from 'api/config.js'
   import Chapter from 'components/chapter/chapter.vue'
@@ -132,6 +133,7 @@
       //   }
           
       // }
+      console.log(getUserInfo())
       window.addEventListener('resize', this.handleResize)
 
       this.navList = [
