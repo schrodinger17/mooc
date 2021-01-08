@@ -14,7 +14,7 @@
 import {newArticleComment} from 'api/article.js'
 import comment from 'components/article-comment/b_comment.vue'
 export default {
-  name: "HelloWorld",
+  name: "Comment",
 	components: {
 		comment,
 	},
