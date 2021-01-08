@@ -29,6 +29,7 @@
     "koa-json": "^2.0.2",
     "koa-router": "^8.0.8",
     "koa-session": "^5.13.1",
+    "less-loader": "^7.2.1",
     "lodash": "^4.17.20",
     "mavon-editor": "^2.9.1",
     "mongoose": "^5.11.10",
@@ -49,6 +50,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "less": "^4.0.0",
     "vue-loader": "^15.9.6",
     "vue-markdown-highlight": "^1.0.5",
     "vue-template-compiler": "^2.6.12"

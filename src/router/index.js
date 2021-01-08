@@ -22,28 +22,10 @@ import IntegralIndex from 'pages/integral/index.vue'// 积分商场路由
 import Editor from 'pages/editor/index.vue'
 import Video from 'pages/video-player/index.vue'
 import ArticleDetail from 'pages/article-detail/index.vue'
-
+import Question from 'pages/question/Question.vue'
+import Score from 'pages/question/Score.vue'
+import QuestionHome from 'pages/question/home.vue'
 Vue.use(Router)
-
-// const Home = () => import('pages/home/index.vue') // 首页路由
-// const CourseIndex = () => import('pages/course/index.vue') // 免费课程路由
-// const CourseDetail = () => import('pages/course-detail/index.vue') // 免费课程详情路由
-// const LessonIndex = () => import('pages/lesson/index.vue') // 实战课程路由
-// const LessonDetail = () => import('pages/lesson-detail/index.vue') // 实战课程详情路由
-// const ReadIndex = () => import('pages/read/index.vue') // 专栏路由
-// const ReadDetaiil = () => import('pages/read-detail/index.vue') // 专栏详情路由
-// const QuestionIndex = () => import('pages/question/index.vue') // 学习小练路由
-// const ArticleIndex = () => import('pages/article/index.vue') // 手记路由
-// const UserCenter = () => import('pages/user/index.vue') // 个人中心路由
-// const UserCourse = () => import('pages/user-course/index.vue') // 我的课程路由
-// const OrderIndex = () => import('pages/order/index.vue') // 订单中心路由
-// const NoticeIndex = () => import('pages/notice/index.vue') // 消息中心路由
-// const CartIndex = () => import('pages/cart/cart.vue') // 购物车路由
-// const CartConfirm = () => import('pages/cart/confirm.vue') // 购物车确认路由
-// const CartPay = () => import('pages/cart/pay.vue') // 购物车支付路由
-// const IntegralIndex = () => import('pages/integral/index.vue') // 积分商场路由
-// const Editor = () => import('pages/editor/index.vue')
-// const Video = () => import('pages/video-player/index.vue')
 
 
 const routes = [
@@ -157,6 +139,9 @@ const routes = [
     path: '/article/:id',
     name: 'ArticleDetail',
     component:ArticleDetail,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/integral',
@@ -167,17 +152,41 @@ const routes = [
     path: '/editor',
     name: 'Editor',
     component: Editor,
-    // meta: {
-    //   requireAuth: true
-    // }
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/video/:id/:chapter',
     name: 'video-player',
     component: Video,
-    // meta: {
-    //   requireAuth: true
-    // }
+    meta: {
+      requireAuth: true
+    }
+  },
+  {
+    path: '/question/:id/questions',
+    name: 'question',
+    component: Question,
+    meta: {
+      requireAuth: true
+    }
+  },
+  {
+    path: '/question/:id/score',
+    name: 'score',
+    component: Score,
+    meta: {
+      requireAuth: true
+    }
+  },
+  {
+    path: '/question/:id',
+    name: 'questionhome',
+    component: QuestionHome,
+    meta: {
+      requireAuth: true
+    }
   }
 ]
 const router = new Router({

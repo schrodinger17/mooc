@@ -41,7 +41,7 @@
                 <span>{{ item.answers }}</span>
               </div>
               <div class="content-box">
-                <h3 class="title">
+                <h3 class="title" @click="handleTitleClick(item.id)">
                   {{ item.title }}
                 </h3>
                 <p class="tag">
@@ -122,6 +122,9 @@ export default {
     this.getQuestionListData()
   },
   methods: {
+    handleTitleClick (id){
+      this.$router.push({path:`/question/${id}`})
+    },
     // 关注标签点击事件
     handleLikeClick (item, index) {
       this.currentIndex = index

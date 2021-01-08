@@ -84,6 +84,7 @@
 //   import ImgUpload from './ImgUpload'
 import {newArticle} from "api/article.js"
 import {ERR_OK} from 'api/config.js'
+import {getUserInfo} from 'utils/cache.js'
   export default {
     name: 'Editor',
     data () {
@@ -149,11 +150,12 @@ import {ERR_OK} from 'api/config.js'
                   text:"推荐",
                   code:0
                 },
+                author:getUserInfo().nickname,
                 title: this.article.articleTitle,
                 content_md: value,
                 content_html: render,
                 abstract: this.article.articleAbstract,
-                img:(!this.article.articleCover) ? this.article.articleCover : "https://www.imooc.com/static/img/article/cover/pic8.jpg",
+                img:this.article.articleCover ? this.article.articleCover : "https://www.imooc.com/static/img/article/cover/pic8.jpg",
                 time: this.getTime(),
                 tag: this.dynamicTags.join(','),
               }

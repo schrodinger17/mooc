@@ -12,7 +12,8 @@ export const freeCatalogData = {
       term: [
         {
           title: "1-1 课程介绍",
-          seconds: 145
+          seconds: 145,
+          src:""
         }
       ]
     },
@@ -22,27 +23,33 @@ export const freeCatalogData = {
       term: [
         {
           title: "2-1 创建第一个Vue实例",
-          seconds: 558
+          seconds: 558,
+          src:""
         },
         {
           title: "2-2 挂载点，模版与实例",
-          seconds: 264
+          seconds: 264,
+          src:""
         },
         {
           title: "2-3 Vue实例中的数据,事件和方法",
-          seconds: 746
+          seconds: 746,
+          src:""
         },
         {
           title: "2-4 Vue中的属性绑定和双向数据绑定",
-          seconds: 518
+          seconds: 518,
+          src:""
         },
         {
           title: "2-5 Vue中的计算属性和侦听器",
-          seconds: 540
+          seconds: 540,
+          src:""
         },
         {
           title: "2-6 v-if, v-show与v-for指令",
-          seconds: 541
+          seconds: 541,
+          src:""
         }
       ]
     },
@@ -52,19 +59,23 @@ export const freeCatalogData = {
       term: [
         {
           title: "3-1 todolist功能开发",
-          seconds: 410
+          seconds: 410,
+          src:""
         },
         {
           title: "3-2 todolist组件拆分",
-          seconds: 669
+          seconds: 669,
+          src:""
         },
         {
           title: "3-3 组件与实例的关系",
-          seconds: 303
+          seconds: 303,
+          src:""
         },
         {
           title: "3-4 实现todolist的删除功能",
-          seconds: 691
+          seconds: 691,
+          src:""
         }
       ]
     },
@@ -74,19 +85,23 @@ export const freeCatalogData = {
       term: [
         {
           title: "4-1 vue-cli的简介与使用",
-          seconds: 999
+          seconds: 999,
+          src:""
         },
         {
           title: "4-2 使用vue-cli开发TodoList",
-          seconds: 1044
+          seconds: 1044,
+          src:""
         },
         {
           title: "4-3 全局样式与局部样式",
-          seconds: 258
+          seconds: 258,
+          src:""
         },
         {
           title: "4-4 课程总结",
-          seconds: 244
+          seconds: 244,
+          src:""
         }
       ]
     }
@@ -107,7 +122,8 @@ export const lessonCatalogData = {
       term: [
         {
           title: "1-1 前端要学的测试课",
-          seconds: 614
+          seconds: 614,
+          src:""
         }
       ]
     },
@@ -117,55 +133,68 @@ export const lessonCatalogData = {
       term: [
         {
           title: "2-1 自动化测试背景及原理",
-          seconds: 728
+          seconds: 728,
+          src:""
         },
         {
           title: "2-2 前端自动化测试框架 Jest",
-          seconds: 336
+          seconds: 336,
+          src:""
         },
         {
           title: "2-3 使用 Jest 修改自动化测试样例",
-          seconds: 447
+          seconds: 447,
+          src:""
         },
         {
           title: "2-4 Jest 的简单配置",
-          seconds: 121
+          seconds: 121,
+          src:""
         },
         {
           title: "2-5 Jest 中的匹配器",
-          seconds: 222
+          seconds: 222,
+          src:""
         },
         {
           title: "2-6 Jest 命令行工具的使用",
-          seconds: 333
+          seconds: 333,
+          src:""
         },
         {
           title: "2-7 异步代码的测试方法（1）",
-          seconds: 444
+          seconds: 444,
+          src:""
         },
         {
           title: "2-8 异步代码的测试方法（2）",
-          seconds: 698
+          seconds: 698,
+          src:""
         },
         {
           title: "2-9 Jest 中的钩子函数",
-          seconds: 996
+          seconds: 996,
+          src:""
         },
         {
           title: "2-10 钩子函数的作用域 ",
-          seconds: 68
+          seconds: 68,
+          src:""
         },
         {
           title: "2-11 Jest 中的 Mock（1）",
-          seconds: 99
+          seconds: 99,
+          src:""
         },
         {
           title: "2-12 Jest 中的 Mock（2）",
-          seconds: 120
+          seconds: 120,
+          src:""
         },
         {
           title: "2-13 章节小结",
-          seconds: 360
+          seconds: 360,
+          src:""
         }
       ]
     },
@@ -176,22 +205,27 @@ export const lessonCatalogData = {
         {
           title: "3-1 snapshot 快照测试",
           seconds: 999,
+          src:""
         },
         {
           title: "3-2 mock 深入学习",
           seconds: 888,
+          src:""
         },
         {
           title: "3-3 mock timers",
           seconds: 777,
+          src:""
         },
         {
           title: "3-4 ES6 中类的测试",
           seconds: 666,
+          src:""
         },
         {
           title: "3-5 Jest  中对 DOM 节点操作的测试",
           seconds: 126,
+          src:""
         }
       ]
     },
@@ -201,60 +235,74 @@ export const lessonCatalogData = {
       term: [
         {
           title: "4-1 什么是TDD？",
-          seconds: 339
+          seconds: 339,
+          src:""
         },
         {
           title: "4-2 Vue 环境中配置 Jest",
-          seconds: 741
+          seconds: 741,
+          src:""
         },
         {
           title: "4-3 vue-test-utils 的配置及使用",
-          seconds: 852
+          seconds: 852,
+          src:""
         },
         {
           title: "4-4 使用 TDD 的方式开发 Header 组件（1）",
-          seconds: 963
+          seconds: 963,
+          src:""
         },
         {
           title: "4-5 使用 TDD 的方式开发 Header 组件 (2)",
-          seconds: 369
+          seconds: 369,
+          src:""
         },
         {
           title: "4-6 Header 组件样式新增及快照测试",
-          seconds: 258
+          seconds: 258,
+          src:""
         },
 
         {
           title: "4-7 通用代码提取封装",
-          seconds: 147
+          seconds: 147,
+          src:""
         },
         {
           title: "4-8 UndoList 的实现（1）",
-          seconds: 121
+          seconds: 121,
+          src:""
         },
         {
           title: "4-9 UndoList 的实现（2）",
-          seconds: 123
+          seconds: 123,
+          src:""
         },
         {
           title: "4-10 UndoList 样式修饰及测试代码优化",
-          seconds: 321
+          seconds: 321,
+          src:""
         },
         {
           title: "4-11 UndoList 编辑功能实现(1)",
-          seconds: 654
+          seconds: 654,
+          src:""
         },
         {
           title: "4-12 UndoList 编辑功能实现 (2)",
-          seconds: 654
+          seconds: 654,
+          src:""
         },
         {
           title: "4-13 CodeCoverage 代码覆盖率",
-          seconds: 987
+          seconds: 987,
+          src:""
         },
         {
           title: "4-14 章节小结 ",
-          seconds: 123
+          seconds: 123,
+          src:""
         }
       ]
     },
@@ -264,67 +312,83 @@ export const lessonCatalogData = {
       term: [
         {
           title: "5-1 什么是TDD？（同4-1）",
-          seconds: 456
+          seconds: 456,
+          src:""
         },
         {
           title: "5-2 React 环境中配置 Jest（1）",
-          seconds: 789
+          seconds: 789,
+          src:""
         },
         {
           title: "5-3 React 环境中配置 Jest（2）",
-          seconds: 999
+          seconds: 999,
+          src:""
         },
         {
           title: "5-4 Enzyme 的配置及使用",
-          seconds: 888
+          seconds: 888,
+          src:""
         },
         {
           title: "5-5 使用 TDD 的方式开发 Header 组件 (1)",
-          seconds: 777
+          seconds: 777,
+          src:""
         },
         {
           title: "5-6 使用 TDD 的方式开发 Header 组件 (2)",
-          seconds: 666
+          seconds: 666,
+          src:""
         },
         {
           title: "5-7 Header 组件样式新增及快照测试",
-          seconds: 555
+          seconds: 555,
+          src:""
         },
         {
           title: "5-8 通用代码提取封装",
-          seconds: 444
+          seconds: 444,
+          src:""
         },
         {
           title: "5-9 UndoList 的实现（1）",
-          seconds: 333
+          seconds: 333,
+          src:""
         },
         {
           title: "5-10 UndoList 的实现（2）",
-          seconds: 222
+          seconds: 222,
+          src:""
         },
         {
           title: "5-11 UndoList 样式修饰及测试代码优化",
-          seconds: 111
+          seconds: 111,
+          src:""
         },
         {
           title: "5-12 UndoList 编辑功能实现 （1）",
-          seconds: 232
+          seconds: 232,
+          src:""
         },
         {
           title: "5-13 UndoList 编辑功能实现 （2）",
-          seconds: 159
+          seconds: 159,
+          src:""
         },
         {
           title: "5-14 UndoList 编辑功能实现（3）",
-          seconds: 484
+          seconds: 484,
+          src:""
         },
         {
           title: "5-15 CodeCoverage 代码覆盖率",
-          seconds: 777
+          seconds: 777,
+          src:""
         },
         {
           title: "5-16 章节小结",
-          seconds: 863
+          seconds: 863,
+          src:""
         }
       ]
     },
@@ -334,27 +398,33 @@ export const lessonCatalogData = {
       term: [
         {
           title: "6-1 BDD 的概念以及与 TDD 的对比",
-          seconds: 142
+          seconds: 142,
+          src:""
         },
         {
           title: "6-2 使用 BDD 和集成测试进行 Vuex 项目的测试（1）",
-          seconds: 753
+          seconds: 753,
+          src:""
         },
         {
           title: "6-3 使用 BDD 和集成测试进行 Vuex 项目的测试（2）",
-          seconds: 836
+          seconds: 836,
+          src:""
         },
         {
           title: "6-4 异步测试(1)",
-          seconds: 999
+          seconds: 999,
+          src:""
         },
         {
           title: "6-5 异步测试(2)",
-          seconds: 369
+          seconds: 369,
+          src:""
         },
         {
           title: "6-6 路由页面的代码组织",
-          seconds: 258
+          seconds: 258,
+          src:""
         }
       ]
     },
@@ -364,31 +434,38 @@ export const lessonCatalogData = {
       term: [
         {
           title: "7-1 BDD 的概念以及与 TDD 的对比",
-          seconds: 147
+          seconds: 147,
+          src:""
         },
         {
           title: "7-2 使用 BDD 和集成测试进行 Redux 项目的测试（1）",
-          seconds: 741
+          seconds: 741,
+          src:""
         },
         {
           title: "7-3 使用 BDD 和集成测试进行 Redux 项目的测试（2）",
-          seconds: 852
+          seconds: 852,
+          src:""
         },
         {
           title: "7-4 异步测试(1)",
-          seconds: 963
+          seconds: 963,
+          src:""
         },
         {
           title: "7-5 异步测试(2)",
-          seconds: 741
+          seconds: 741,
+          src:""
         },
         {
           title: "7-6 异步测试(3)",
-          seconds: 123
+          seconds: 123,
+          src:""
         },
         {
           title: "7-7 路由页面的代码组织",
-          seconds: 456
+          seconds: 456,
+          src:""
         }
       ]
     },
@@ -398,7 +475,8 @@ export const lessonCatalogData = {
       term: [
         {
           title: "8-1 课程总结 ",
-          seconds: 756
+          seconds: 756,
+          src:""
         }
       ]
     }

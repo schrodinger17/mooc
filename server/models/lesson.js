@@ -101,7 +101,7 @@ lessonModel.find((err, data) => {
       } else {
         Catalog.create(Object.assign({
           id: getGuid(),
-          lessonid: item.id
+          lessonid: item.id,
         }, freeCatalogData))
       }
 

@@ -41,14 +41,15 @@
               ></i>表情
             </el-button>
           </el-popover>
-          <div v-if="if_not_logined_status" class="nickname_area"
+          <!-- <div v-if="if_not_logined_status" class="nickname_area"
                style="align-items: center;display: flex;margin-left: 20px;"
           >
-            <span style="user-select:none;">昵称：</span><!--id可删去-->
+            <span style="user-select:none;">昵称：</span>
             <el-input id="insert_comment.comment_name" v-model="insert_comment.comment_name"
                       placeholder="" size="small" style="width:120px;" maxlength="10"
             ></el-input>
-          </div>
+          </div> -->
+          <div style="width:140px"></div>
           <hua v-if="if_not_logined_status" ref="verify_plug" @verify_pass="verify_pass"></hua>
           <div class="submit_area">
             <el-popover ref="popover_comment"

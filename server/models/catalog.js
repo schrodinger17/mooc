@@ -29,7 +29,8 @@ const CatalogSchema = new Schema({
           seconds: {
             type: Number,
             default: 0
-          }
+          },
+          src: String
         }
       ]
     }

@@ -13,6 +13,7 @@
 /* eslint-disable */
 import {newArticleComment} from 'api/article.js'
 import comment from 'components/article-comment/b_comment.vue'
+import {getUserInfo} from 'utils/cache.js'
 export default {
   name: "Comment",
 	components: {
@@ -49,8 +50,8 @@ export default {
 	submit_click (){
         let comments={
             comment: this.comment_text,
-            avatar:"https://img.mukewang.com/5599e8e100010c2110800960-40-40.jpg",
-            name: this.comment_name,
+            avatar: getUserInfo()?getUserInfo().avatar:"https://img.mukewang.com/5599e8e100010c2110800960-40-40.jpg",
+            name: getUserInfo().nickname,
             time: this.getTime()
         }
         const params = {

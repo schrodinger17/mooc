@@ -53,7 +53,7 @@
 <script>
   // custom skin css
   // import 'assets/css/video-theme.css'
-  import {getUserInfo} from 'utils/cache.js'
+  // import {getUserInfo} from 'utils/cache.js'
   import { getLessonDetail } from 'api/lesson.js'
   import { ERR_OK } from 'api/config.js'
   import Chapter from 'components/chapter/chapter.vue'
@@ -68,7 +68,6 @@
         currentNavIndex: 0,
         navList: [],
         courseDetail: {
-          base: {}
         },
         // videojs options
         playerOptions: {
@@ -83,7 +82,7 @@
           // aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
           fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
           sources: [{
-            src: "http://vjs.zencdn.net/v/oceans.mp4", // 路径
+            src: "", // 路径
             type: 'video/mp4' // 类型
           }],
           poster: "", // 你的封面地址
@@ -119,6 +118,7 @@
       Comment
     },
     created () {
+      this.getCourseDetailData()
     // 初始化导航数据
       // if( this.fullWidth && this.fullHeight)
       // {
@@ -133,7 +133,7 @@
       //   }
           
       // }
-      console.log(getUserInfo())
+      // console.log(getUserInfo())
       window.addEventListener('resize', this.handleResize)
 
       this.navList = [
@@ -146,7 +146,6 @@
       window.removeEventListener('resize', this.handleResize)
     },
     mounted () {
-      this.getCourseDetailData()
       // console.log('this is current player instance object', this.player)
       // setTimeout(() => {
       //   // console.log('dynamic change options', this.player)
@@ -181,7 +180,7 @@
         this.chapter = this.$route.params.chapter
         console.log(from.path);//从哪来
         console.log(to.path);//到哪去
-        // this.playerOptions.sources.src=...  为不同的课程设置不同的视频链接和poster
+        // this.playerOptions.sources.src = this.courseDetail.src
       }
     },
     methods: {
@@ -219,7 +218,7 @@
         let { code, data, msg } = res
         if (code === ERR_OK) {
           this.courseDetail = data
-          
+          console.log(this)
         } else {
           this.courseDetail = {}
           this.$message.error(msg)
