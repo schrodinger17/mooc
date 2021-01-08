@@ -47,8 +47,8 @@ export default {
     },
     methods: {
        goBack () {
-        this.$router.push({path: `/article`})
-        // this.$router.go(-1)
+        // this.$router.push({path: `/article`})
+        this.$router.go(-1)
       },
       getArticleData () {
         const params = {
