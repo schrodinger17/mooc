@@ -21,10 +21,10 @@ const QuestionSchema = new Schema({
     type: Number,
     default: 0
   },
-  icon: {
+  /*icon: {
     type: String,
     default: ''
-  },
+  },*/
   tags: {
     type: Array
   },

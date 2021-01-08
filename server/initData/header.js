@@ -15,7 +15,7 @@ const headerData = [
     icon: "https://www.imooc.com/static/img/common/new.png"
   },
   {
-    title: "猿问",
+    title: "学习小练",
     path: "/question",
     icon: ""
   },

@@ -9,7 +9,7 @@ import LessonIndex from 'pages/lesson/index.vue' // 实战课程路由
 import LessonDetail from 'pages/lesson-detail/index.vue' // 实战课程详情路由
 import ReadIndex from 'pages/read/index.vue' // 专栏路由
 import ReadDetaiil from 'pages/read-detail/index.vue'// 专栏详情路由
-import QuestionIndex from 'pages/question/index.vue' // 猿问路由
+import QuestionIndex from 'pages/question/index.vue' // 学习小练路由
 import ArticleIndex from 'pages/article/index.vue' // 手记路由
 import UserCenter from 'pages/user/index.vue' // 个人中心路由
 import UserCourse from 'pages/user-course/index.vue' // 我的课程路由
@@ -32,7 +32,7 @@ Vue.use(Router)
 // const LessonDetail = () => import('pages/lesson-detail/index.vue') // 实战课程详情路由
 // const ReadIndex = () => import('pages/read/index.vue') // 专栏路由
 // const ReadDetaiil = () => import('pages/read-detail/index.vue') // 专栏详情路由
-// const QuestionIndex = () => import('pages/question/index.vue') // 猿问路由
+// const QuestionIndex = () => import('pages/question/index.vue') // 学习小练路由
 // const ArticleIndex = () => import('pages/article/index.vue') // 手记路由
 // const UserCenter = () => import('pages/user/index.vue') // 个人中心路由
 // const UserCourse = () => import('pages/user-course/index.vue') // 我的课程路由

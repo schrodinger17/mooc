@@ -45,7 +45,6 @@
                   {{ item.title }}
                 </h3>
                 <p class="tag">
-                  <img :src="item.icon" alt="">
                   <span
                     v-for="(tag, index) in item.tags"
                     :key="index"
