@@ -247,7 +247,7 @@ router.get('/user', checkUser, async (ctx) => {
 })
 
 
-router.get('/chapter', async (ctx) => {
+router.get('/chapter', checkUser, async (ctx) => {
   const { id, chapter } = ctx.query
   if (!id) {
     ctx.body = {

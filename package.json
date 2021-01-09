@@ -6,10 +6,7 @@
     "node": "nodemon server/app.js --exec babel-node --presets env",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepess build docs",
-    "depoly": "depoly.sh"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.19.2",
