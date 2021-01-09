@@ -32,3 +32,15 @@ export function getLessonQa (params) {
     params
   })
 }
+
+export function getChapterVideo (params) {
+  return axios.get('/api/lesson/chapter', {
+    params
+  })
+}
+
+export function alterChapterVideo (params) {
+  return axios.post('/api/lesson/chapter', {
+    params
+  })
+}

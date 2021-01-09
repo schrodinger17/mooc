@@ -246,4 +246,114 @@ router.get('/user', checkUser, async (ctx) => {
   }
 })
 
+
+router.get('/chapter', async (ctx) => {
+  const { id, chapter } = ctx.query
+  if (!id) {
+    ctx.body = {
+      code: -1,
+      msg: '缺少关键参数id'
+    }
+    return false
+  }
+  try {
+    const catalog = await Catalog.findOne({
+      lessonid: id,
+    })
+    let res = ""
+    
+    for (var value of catalog.chapter) {
+      
+        
+        for (var v of value.term)
+        {
+          // console.log(v)
+          if(v.title === chapter)
+          {
+            res = v.src
+          }
+        }
+    }
+    // console.log(res)
+    if (res) {
+      ctx.body = {
+        code: ERR_OK,
+        msg: '获取视频链接成功',
+        data: {
+          src: res
+        }
+      }
+    } else {
+      ctx.body = {
+        code: -1,
+        msg: '获取视频链接失败',
+        data: {
+          src:""
+        }
+      }
+    }
+    
+  } catch (e) {
+    ctx.body = {
+      code: -1,
+      msg: e.message || '服务器异常'
+    }
+  }
+})
+
+router.post('/chapter', async (ctx) => {
+  const { id, chapter, src } = ctx.request.body.params
+  // console.log(ctx.request.body)
+  // console.log(id)
+  if (!id) {
+    ctx.body = {
+      code: -1,
+      msg: '缺少关键参数id'
+    }
+    return false
+  }
+  try {
+    let catalog = await Catalog.findOne({
+      lessonid: id
+    })
+    for (var value of catalog.chapter) {
+      
+        
+      for (var v of value.term)
+      {
+        // console.log(v)
+        if(v.title === chapter)
+        {
+          v.src = src
+        }
+      }
+    }
+    await Catalog.updateOne({
+      lessonid: id
+    }, {chapter:catalog.chapter}, function (err, res)
+    {
+      if(err)
+      {
+        ctx.body = {
+          code: -1,
+          msg: '更新章节链接数据失败',
+        }
+      }
+      else{
+        console.log(res)
+        ctx.body = {
+          code: ERR_OK,
+          msg: "更新章节链接数据成功",
+        }
+      }
+    })
+  } catch (e) {
+    ctx.body = {
+      code: -1,
+      msg: e.message || '服务器异常'
+    }
+  }
+})
+
+
 export default router

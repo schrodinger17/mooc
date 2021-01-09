@@ -12,9 +12,6 @@
           <video-player ref="videoPlayer"
                         :options="playerOptions"
                         :playsinline="true"
-                        @play="onPlayerPlay($event)"
-                        @pause="onPlayerPause($event)"
-                        @ended="onPlayerEnded($event)"
           >
           </video-player>
         </div>
@@ -54,21 +51,20 @@
   // custom skin css
   // import 'assets/css/video-theme.css'
   // import {getUserInfo} from 'utils/cache.js'
-  import { getLessonDetail } from 'api/lesson.js'
+  import { getLessonDetail, getChapterVideo, alterChapterVideo } from 'api/lesson.js'
   import { ERR_OK } from 'api/config.js'
   import Chapter from 'components/chapter/chapter.vue'
   import QuestionAnswer  from 'components/question-answer/question-answer.vue'
   import Comment from 'components/comment/comment.vue'
   export default {
+    name:"VideoIndex",
     data () {
       return {
-        fullHeight: document.documentElement.clientHeight,
-        fullWidth: document.documentElement.clientWidth,
         chapter: this.$route.params.chapter,
         currentNavIndex: 0,
         navList: [],
-        courseDetail: {
-        },
+        courseDetail: {},
+        videosrc:"",
         // videojs options
         playerOptions: {
           // height: document.documentElement.clientWidth * 2 / 3 * 9 / 16,
@@ -77,12 +73,12 @@
           autoplay: false, // 如果true,浏览器准备好时开始回放。
           muted: false, // 默认情况下将会消除任何音频。
           loop: false, // 导致视频一结束就重新开始。
-          preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
+          // preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
           language: 'zh-CN',
           // aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
           fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
           sources: [{
-            src: "", // 路径
+            src: "http://vjs.zencdn.net/v/oceans.mp4", // 路径
             type: 'video/mp4' // 类型
           }],
           poster: "", // 你的封面地址
@@ -119,6 +115,9 @@
     },
     created () {
       this.getCourseDetailData()
+      // this.alterVideoSource("http://vjs.zencdn.net/v/oceans.mp4")
+      this.getVideoSource()
+
     // 初始化导航数据
       // if( this.fullWidth && this.fullHeight)
       // {
@@ -146,6 +145,7 @@
       window.removeEventListener('resize', this.handleResize)
     },
     mounted () {
+     
       // console.log('this is current player instance object', this.player)
       // setTimeout(() => {
       //   // console.log('dynamic change options', this.player)
@@ -180,7 +180,7 @@
         this.chapter = this.$route.params.chapter
         console.log(from.path);//从哪来
         console.log(to.path);//到哪去
-        // this.playerOptions.sources.src = this.courseDetail.src
+        this.getVideoSource()
       }
     },
     methods: {
@@ -218,7 +218,6 @@
         let { code, data, msg } = res
         if (code === ERR_OK) {
           this.courseDetail = data
-          console.log(this)
         } else {
           this.courseDetail = {}
           this.$message.error(msg)
@@ -228,16 +227,54 @@
         this.$message.error('接口异常')
       })
     },
+    getVideoSource () {
+      const params = {
+        id: this.$route.params.id,
+        chapter: this.$route.params.chapter
+      }
+      // console.log(this.$route.params.chapter)
+      getChapterVideo(params).then(res => {
+        let { code, data, msg } = res
+        if (code === ERR_OK) {
+          this.playerOptions.sources[0].src = data.src
+        } else {
+          this.playerOptions.sources[0].src = ""
+          this.$message.error(msg)
+        }
+      }).catch (() => {
+        this.playerOptions.sources[0].src = ""
+        this.$message.error('接口异常')
+      })
+    },
+    alterVideoSource (src) {
+      const params = {
+        id: this.$route.params.id,
+        chapter: this.$route.params.chapter,
+        src:src
+      }
+      // console.log(this.$route.params.chapter)
+      alterChapterVideo(params).then(res => {
+        let { code, msg } = res
+        if (code === ERR_OK) {
+          this.$message.success(msg)
+        } else {
+          this.$message.error(msg)
+        }
+      }).catch (() => {
+        this.$message.error('接口异常')
+      })
+    }
       // listen event
-      onPlayerPlay (player) {
-        console.log('player play!', player)
-      },
-      onPlayerPause (player) {
-        console.log('player pause!', player)
-      },
-      onPlayerEnded (player) {
-        console.log('player ended!', player)
-      },
+      // onPlayerPlay (player) {
+      //   // console.log(this.videosrc)
+      //   console.log('player play!', player)
+      // },
+      // onPlayerPause (player) {
+      //   console.log('player pause!', player)
+      // },
+      // onPlayerEnded (player) {
+      //   console.log('player ended!', player)
+      // },
       // onPlayerLoadeddata (player) {
       //   console.log('player Loadeddata!', player)
       // },
@@ -261,7 +298,7 @@
       // playerStateChanged (playerCurrentState) {
       //   console.log('player current update state', playerCurrentState)
       // },
-      // // player is ready
+      // player is ready
       // playerReadied (player) {
       //   // seek to 10s
       //   console.log('example player 1 readied', player)
