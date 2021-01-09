@@ -1,22 +1,22 @@
 import crypto from 'crypto-js'
 const userData = [
   {
-    username: 'why',
-    password: crypto.MD5('123456').toString(),
-    nickname: 'BlueMan_汪汪汪',
-    avatar: 'https://img.mukewang.com/5882f5f70001525e01000100-100-100.jpg',
+    username: 'admin',
+    password: crypto.MD5('admin').toString(),
+    nickname: 'admin',
+    avatar: 'https://avatars0.githubusercontent.com/u/35279858?s=400&u=dc1e81c28da7f54c6986644e0b3bf986b03bf30b&v=4',
     sex: 'male',
     job: 'Web前端工程师',
-    city: '广东省广州市',
-    signature: '故九万里，则风斯在下矣，而后乃今培风；背负青天，而莫之夭阏者，而后乃今将图南',
+    city: 'Manchester City',
+    signature: '嘿嘿',
     hour: 1255,
     exp: 20884,
     integral: 160,
     follow: 5,
     fans: 1,
-    email: 'why583440138@gmail.com',
-    qq: '583xxxxx38',
-    phone: '182xxxxxx66',
+    email: 'rycbar17th@gmail.com',
+    qq: '5xxxxxxxxx',
+    phone: '1xxxxxxxxxx',
     wechat: 'wechat',
     weibo: 'weibo'
   }

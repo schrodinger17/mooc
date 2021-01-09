@@ -46,6 +46,7 @@ router.post('/register', async (ctx) => {
   const guid = getGuid()
   const checkRegister = await User.create({
     id: guid,
+    avatar:"https://img.mukewang.com/5599e8e100010c2110800960-40-40.jpg",
     username: username,
     password: password,
     nickname: `用户${new Date().getTime()}`
@@ -131,9 +132,9 @@ router.post('/login', async (ctx) => {
           code: 0
         },
         time: new Date().toISOString().replace('T', ' ').substring(0, 19),
-        ip: '192.168.2.102',
+        ip: '192.168.1.2',
         device: 'web',
-        city: '广东省广州市'
+        city: '陕西省西安市'
       }
       await axios.post('http://localhost:4300/log/create', params)
       // 获取最新登录时间

@@ -72,8 +72,8 @@ export default {
       isLoading: false,
       rules: rules,
       loginForm: {
-        username: 'why',
-        password: '123456',
+        username: '',
+        password: '',
         ckpassword: '',
         auto: true,
         argement: false

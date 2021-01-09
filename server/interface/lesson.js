@@ -301,7 +301,7 @@ router.get('/chapter', async (ctx) => {
   }
 })
 
-router.post('/chapter', async (ctx) => {
+router.post('/chapter', checkUser, async (ctx) => {
   const { id, chapter, src } = ctx.request.body.params
   // console.log(ctx.request.body)
   // console.log(id)

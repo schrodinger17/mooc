@@ -4,6 +4,7 @@ import Article from '../models/article.js'
 import ArticleComment from '../models/articleComment.js'
 import { ERR_OK, SIZE } from '../config.js'
 import {getGuid} from '../../src/utils/utils.js'
+import checkUser from '../middleware/auth.js'
 const router = new Router({
   prefix: '/article'
 })
@@ -75,7 +76,7 @@ router.get('/list', async (ctx) => {
   }
 })
 
-router.get('/', async (ctx) => {
+router.get('/', checkUser, async (ctx) => {
   const { id } = ctx.query
   try {
     const where = {}
@@ -111,7 +112,7 @@ router.get('/', async (ctx) => {
   }
 })
 
-router.get('/comment', async (ctx) => {
+router.get('/comment', checkUser, async (ctx) => {
   const { id } = ctx.query
   if (!id) {
     ctx.body = {
@@ -144,7 +145,7 @@ router.get('/comment', async (ctx) => {
   }
 })
 
-router.post('/comment', async (ctx) => {
+router.post('/comment', checkUser, async (ctx) => {
   const { id, params } = ctx.request.body.params
   console.log(ctx.request.body)
   console.log(id)
@@ -194,7 +195,7 @@ router.post('/comment', async (ctx) => {
 })
 
 
-router.post('/', async (ctx) => {
+router.post('/', checkUser, async (ctx) => {
   const { params } = ctx.request.body
   params.id = getGuid()
   console.log(params)
