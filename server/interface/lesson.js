@@ -5,7 +5,6 @@ import Catalog from '../models/catalog.js'
 import Comment from '../models/comment.js'
 import Qa from '../models/qa.js'
 import { ERR_OK, SIZE } from '../config.js'
-import checkUser from '../middleware/auth.js'
 const router = new Router({
   prefix: '/lesson'
 })
@@ -206,7 +205,7 @@ router.get('/qa', async (ctx) => {
 })
 
 // 用户课程列表路由
-router.get('/user', checkUser, async (ctx) => {
+router.get('/user', async (ctx) => {
   const userid = ctx.session.user_id
   const { page = 1, size = SIZE } = ctx.query
   try {
@@ -247,7 +246,7 @@ router.get('/user', checkUser, async (ctx) => {
 })
 
 
-router.get('/chapter', checkUser, async (ctx) => {
+router.get('/chapter', async (ctx) => {
   const { id, chapter } = ctx.query
   if (!id) {
     ctx.body = {
@@ -301,7 +300,7 @@ router.get('/chapter', checkUser, async (ctx) => {
   }
 })
 
-router.post('/chapter', checkUser, async (ctx) => {
+router.post('/chapter', async (ctx) => {
   console.log(ctx.request.body)
   const { id, chapter, src } = ctx.request.body
   
