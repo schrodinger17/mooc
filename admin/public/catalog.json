@@ -1,0 +1,164 @@
+{
+    "code": 0,
+    "msg": "获取课程详情数据成功",
+    "data": {
+      "_id": "5ff964641877b60f44765d9f",
+      "type": {
+        "code": 0,
+        "text": "免费"
+      },
+      "introduction": "HTML(5)+CSS(3)基础教程8小时带领大家步步深入学习标签用法和意义",
+      "price": 0,
+      "isDiscount": false,
+      "discountPrice": 0,
+      "persons": 6049,
+      "comments": 1993,
+      "labels": [
+        "HTML/CSS"
+      ],
+      "category": {
+        "text": "前端开发",
+        "code": 0
+      },
+      "title": "初识HTML(5)+CSS(3)-2020升级版",
+      "img": "https://img4.mukewang.com/529dc3380001379906000338-240-135.jpg",
+      "banner": "",
+      "hard": {
+        "text": "入门",
+        "code": 0
+      },
+      "teacher": {
+        "name": "丶五月的夏天",
+        "avatar": "https://img2.mukewang.com/54584f6d0001759002200220-80-80.jpg",
+        "job": "Web前端工程师",
+        "introduction": ""
+      },
+      "id": "d9188c36-8e63-3cc5-56bc-786412c32bab",
+      "time": "2021-01-09 08:08:57",
+      "__v": 0,
+      "catalog": {
+        "introduction": "简介：对于很多刚接触Vue的同学，最难做到的就是编程思路的切换，这门课程，我们将通过形象的例子给大家讲解Vue的基础语法及编程思路，带大家快速的上手Vue的基础开发，这门课也包含了关于组件话和vue-cli等内容的基础讲解。",
+        "isComplete": true,
+        "_id": "5ff964641877b60f44765da0",
+        "id": "d9d97d14-ee72-58b3-18dc-41b300a1a05e",
+        "lessonid": "d9188c36-8e63-3cc5-56bc-786412c32bab",
+        "chapter": [
+          {
+            "_id": "5ff964641877b60f44765da1",
+            "title": "第1章 课程介绍",
+            "term": [
+              {
+                "seconds": 145,
+                "_id": "5ff964641877b60f44765da2",
+                "title": "1-1 课程介绍",
+                "src": ""
+              }
+            ]
+          },
+          {
+            "_id": "5ff964641877b60f44765da3",
+            "title": "第2章 Vue基础语法",
+            "term": [
+              {
+                "seconds": 558,
+                "_id": "5ff964641877b60f44765da4",
+                "title": "2-1 创建第一个Vue实例",
+                "src": ""
+              },
+              {
+                "seconds": 264,
+                "_id": "5ff964641877b60f44765da5",
+                "title": "2-2 挂载点，模版与实例",
+                "src": ""
+              },
+              {
+                "seconds": 746,
+                "_id": "5ff964641877b60f44765da6",
+                "title": "2-3 Vue实例中的数据,事件和方法",
+                "src": ""
+              },
+              {
+                "seconds": 518,
+                "_id": "5ff964641877b60f44765da7",
+                "title": "2-4 Vue中的属性绑定和双向数据绑定",
+                "src": ""
+              },
+              {
+                "seconds": 540,
+                "_id": "5ff964641877b60f44765da8",
+                "title": "2-5 Vue中的计算属性和侦听器",
+                "src": ""
+              },
+              {
+                "seconds": 541,
+                "_id": "5ff964641877b60f44765da9",
+                "title": "2-6 v-if, v-show与v-for指令",
+                "src": ""
+              }
+            ]
+          },
+          {
+            "_id": "5ff964641877b60f44765daa",
+            "title": "第3章 Vue中的组件",
+            "term": [
+              {
+                "seconds": 410,
+                "_id": "5ff964641877b60f44765dab",
+                "title": "3-1 todolist功能开发",
+                "src": ""
+              },
+              {
+                "seconds": 669,
+                "_id": "5ff964641877b60f44765dac",
+                "title": "3-2 todolist组件拆分",
+                "src": ""
+              },
+              {
+                "seconds": 303,
+                "_id": "5ff964641877b60f44765dad",
+                "title": "3-3 组件与实例的关系",
+                "src": ""
+              },
+              {
+                "seconds": 691,
+                "_id": "5ff964641877b60f44765dae",
+                "title": "3-4 实现todolist的删除功能",
+                "src": ""
+              }
+            ]
+          },
+          {
+            "_id": "5ff964641877b60f44765daf",
+            "title": "第4章 Vue-cli的使用",
+            "term": [
+              {
+                "seconds": 999,
+                "_id": "5ff964641877b60f44765db0",
+                "title": "4-1 vue-cli的简介与使用",
+                "src": ""
+              },
+              {
+                "seconds": 1044,
+                "_id": "5ff964641877b60f44765db1",
+                "title": "4-2 使用vue-cli开发TodoList",
+                "src": ""
+              },
+              {
+                "seconds": 258,
+                "_id": "5ff964641877b60f44765db2",
+                "title": "4-3 全局样式与局部样式",
+                "src": ""
+              },
+              {
+                "seconds": 244,
+                "_id": "5ff964641877b60f44765db3",
+                "title": "4-4 课程总结",
+                "src": ""
+              }
+            ]
+          }
+        ],
+        "__v": 0
+      }
+    }
+  }
