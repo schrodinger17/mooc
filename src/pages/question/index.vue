@@ -12,22 +12,6 @@
           提问
         </div>
       </div>
-      <div v-if="userInfo.id" class="question-nav">
-        <dl>
-          <dt>我的关注：</dt>
-          <dd
-            v-for="(item, index) in followList"
-            :key="index"
-            :class="{
-              active: currentIndex == index
-            }"
-            @click="handleLikeClick(item, index)"
-          >
-            {{ item.title }}
-          </dd>
-          <dd @click="handleLabelManageClick">标签管理</dd>
-        </dl>
-      </div>
     </div>
 
     <!-- 列表部分 -->
@@ -63,35 +47,6 @@
       </div>
       <pagination :size="size" :total="total" :page.sync="page" @change="handlePaginationChange" />
     </div>
-
-    <!-- 标签管理弹出 -->
-    <mooc-dialog title="选择感兴趣的标签" :visible.sync="dialogVisible" width="600px">
-      <el-scrollbar>
-        <div class="label-container">
-          <dl
-            v-for="(type, index) in labelList"
-            :key="index"
-            class="label-group"
-          >
-            <dt class="label-group-title">{{ type.title }}</dt>
-            <dd
-              v-for="(label, labelIndex) in type.list"
-              :key="labelIndex"
-              class="label-item"
-              :class="{
-                'is-active': label.isSelected
-              }"
-              @click="handleLabelClick(index, label, labelIndex)"
-            >
-              {{ label.title }}
-            </dd>
-          </dl>
-        </div>
-      </el-scrollbar>
-      <template slot="footer">
-        <mooc-button type="success" :disabled="isLoading" @click="handleFollowClick">完成</mooc-button>
-      </template>
-    </mooc-dialog>
   </div>
 </template>
 <script>
