@@ -7,6 +7,7 @@ import commonRouter from './interface/common.js'
 import noticeRouter from './interface/notice.js'
 import readRouter from './interface/read.js'
 import userRouter from './interface/user.js'
+import adminRouter from './interface/admin.js'
 import logRouter from './interface/log.js'
 import addressRouter from './interface/address.js'
 import integralRouter from './interface/integral.js'
@@ -78,6 +79,7 @@ app.use(lessonRouter.routes(), lessonRouter.allowedMethods())
 app.use(cartRouter.routes(), cartRouter.allowedMethods())
 app.use(orderRouter.routes(), orderRouter.allowedMethods())
 app.use(userLessonRouter.routes(), userLessonRouter.allowedMethods())
+app.use(adminRouter.routes(), adminRouter.allowedMethods())
 
 // 启动服务
 app.listen(port, () => {
