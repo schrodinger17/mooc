@@ -78,7 +78,7 @@
           // aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
           fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
           sources: [{
-            src: "http://video9.snrtv.com/fs/editor/20201016/eeb/eeb3919c-0f4d-11eb-8549-00110a6cb16c_split_1602811295.mp4", // 路径
+            src: "", // 路径
             type: 'video/mp4' // 类型
           }],
           poster: "", // 你的封面地址
