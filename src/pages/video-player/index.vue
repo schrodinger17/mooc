@@ -51,7 +51,7 @@
   // custom skin css
   // import 'assets/css/video-theme.css'
   // import {getUserInfo} from 'utils/cache.js'
-  import { getLessonDetail, getChapterVideo, alterChapterVideo } from 'api/lesson.js'
+  import { getLessonDetail, getChapterVideo } from 'api/lesson.js'
   import { ERR_OK } from 'api/config.js'
   import Chapter from 'components/chapter/chapter.vue'
   import QuestionAnswer  from 'components/question-answer/question-answer.vue'
@@ -246,24 +246,24 @@
         this.$message.error('接口异常')
       })
     },
-    alterVideoSource (src) {
-      const params = {
-        id: this.$route.params.id,
-        chapter: this.$route.params.chapter,
-        src:src
-      }
-      // console.log(this.$route.params.chapter)
-      alterChapterVideo(params).then(res => {
-        let { code, msg } = res
-        if (code === ERR_OK) {
-          this.$message.success(msg)
-        } else {
-          this.$message.error(msg)
-        }
-      }).catch (() => {
-        this.$message.error('接口异常')
-      })
-    }
+    // alterVideoSource (src) {
+    //   const params = {
+    //     id: this.$route.params.id,
+    //     chapter: this.$route.params.chapter,
+    //     src:src
+    //   }
+    //   // console.log(this.$route.params.chapter)
+    //   alterChapterVideo(params).then(res => {
+    //     let { code, msg } = res
+    //     if (code === ERR_OK) {
+    //       this.$message.success(msg)
+    //     } else {
+    //       this.$message.error(msg)
+    //     }
+    //   }).catch (() => {
+    //     this.$message.error('接口异常')
+    //   })
+    // }
       // listen event
       // onPlayerPlay (player) {
       //   // console.log(this.videosrc)

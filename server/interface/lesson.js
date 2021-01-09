@@ -302,9 +302,10 @@ router.get('/chapter', checkUser, async (ctx) => {
 })
 
 router.post('/chapter', checkUser, async (ctx) => {
-  const { id, chapter, src } = ctx.request.body.params
-  // console.log(ctx.request.body)
-  // console.log(id)
+  console.log(ctx.request.body)
+  const { id, chapter, src } = ctx.request.body
+  
+  console.log(id)
   if (!id) {
     ctx.body = {
       code: -1,
