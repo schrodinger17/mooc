@@ -106,11 +106,11 @@ export default {
       this.dialogVisible = true
       this.editForm = {
         id: '',
-        name: '汪图南',
-        phone: '18277776666',
-        area: '广东省广州市',
-        address: '天河区xxx路xxx号xxx公司',
-        postcode: '000000'
+        name: '',
+        phone: '',
+        area: '',
+        address: '',
+        postcode: ''
       }
       this.$nextTick(() => {
         this.$refs.editForm.resetFields()

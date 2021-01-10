@@ -115,15 +115,15 @@ export default {
                 },
                 {
                     value: 'hunan',
-                    label: '湖南省',
+                    label: '陕西省',
                     children: [
                         {
                             value: 'changsha',
-                            label: '长沙市',
+                            label: '西安市',
                             children: [
                                 {
                                     value: 'yuelu',
-                                    label: '岳麓区'
+                                    label: '长安区'
                                 }
                             ]
                         }
