@@ -4,13 +4,6 @@
     <div class="question-header m-center">
       <div class="question-search">
         <img src="../../assets/images/lianxi.png" alt="">
-        <div class="search-box">
-          <input type="text" placeholder="请输入你的问题">
-          <i class="iconfont">&#xe63c;</i>
-        </div>
-        <div class="search-btn">
-          提问
-        </div>
       </div>
     </div>
 

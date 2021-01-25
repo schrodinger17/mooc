@@ -10,7 +10,7 @@
         
         <div class="markdown-body">
           <!-- eslint-disable-next-line -->
-          <div v-html="article[0].content_html"></div>
+          <div v-html="filterXSS(article[0].content_html)"></div>
         </div>
       </div>
     </el-card>

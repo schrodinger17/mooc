@@ -2,7 +2,6 @@ import Koa from 'koa'
 import json from 'koa-json'
 import session from 'koa-session'
 import bodyParser from 'koa-bodyparser'
-import homeRouter from './interface/home.js'
 import commonRouter from './interface/common.js'
 import noticeRouter from './interface/notice.js'
 import readRouter from './interface/read.js'
@@ -61,7 +60,6 @@ mongoose.connect(dbConfig.dbs, {
   useUnifiedTopology: true
 })
 // 路由
-app.use(homeRouter.routes(), homeRouter.allowedMethods())
 app.use(commonRouter.routes(), commonRouter.allowedMethods())
 app.use(noticeRouter.routes(), noticeRouter.allowedMethods())
 app.use(readRouter.routes(), readRouter.allowedMethods())

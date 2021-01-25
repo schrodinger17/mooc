@@ -5,20 +5,12 @@ import { getUserInfo } from 'utils/cache.js'
 import Home from 'pages/home/index.vue'// 首页路由
 import CourseIndex from 'pages/course/index.vue' // 免费课程路由
 import CourseDetail from 'pages/course-detail/index.vue' // 免费课程详情路由
-import LessonIndex from 'pages/lesson/index.vue' // 实战课程路由
-import LessonDetail from 'pages/lesson-detail/index.vue' // 实战课程详情路由
-import ReadIndex from 'pages/read/index.vue' // 专栏路由
-import ReadDetaiil from 'pages/read-detail/index.vue'// 专栏详情路由
 import QuestionIndex from 'pages/question/index.vue' // 学习小练路由
 import ArticleIndex from 'pages/article/index.vue' // 手记路由
 import UserCenter from 'pages/user/index.vue' // 个人中心路由
 import UserCourse from 'pages/user-course/index.vue' // 我的课程路由
 import OrderIndex from 'pages/order/index.vue' // 订单中心路由
 import NoticeIndex from 'pages/notice/index.vue' // 消息中心路由
-import CartIndex from 'pages/cart/cart.vue' // 购物车路由
-import CartConfirm from 'pages/cart/confirm.vue' // 购物车确认路由
-import CartPay from 'pages/cart/pay.vue' // 购物车支付路由
-import IntegralIndex from 'pages/integral/index.vue'// 积分商场路由
 import Editor from 'pages/editor/index.vue'
 import Video from 'pages/video-player/index.vue'
 import ArticleDetail from 'pages/article-detail/index.vue'
@@ -74,56 +66,12 @@ const routes = [
     component: CourseDetail
   },
   {
-    path: '/lesson',
-    name: 'LessonIndex',
-    component:LessonIndex
-  },
-  {
-    path: '/lesson/:id',
-    name: 'LessonDetail',
-    component: LessonDetail
-  },
-  {
     path: '/notice',
     name: 'NoticeIndex',
     component:NoticeIndex,
     meta: {
       requireAuth: true
     }
-  },
-  {
-    path: '/cart',
-    name: 'CartIndex',
-    component:CartIndex,
-    meta: {
-      requireAuth: true
-    }
-  },
-  {
-    path: '/cart/confirm',
-    name: 'CartConfirm',
-    component:CartConfirm,
-    meta: {
-      requireAuth: true
-    }
-  },
-  {
-    path: '/cart/pay/:code',
-    name: 'CartPay',
-    component:CartPay,
-    meta: {
-      requireAuth: true
-    }
-  },
-  {
-    path: '/read',
-    name: 'ReadIndex',
-    component:ReadIndex,
-  },
-  {
-    path: '/read/:id',
-    name: 'ReadDetaiil',
-    component:ReadDetaiil,
   },
   {
     path: '/question',
@@ -142,11 +90,6 @@ const routes = [
     meta: {
       requireAuth: true
     }
-  },
-  {
-    path: '/integral',
-    name: 'IntegralIndex',
-    component: IntegralIndex
   },
   {
     path: '/editor',
