@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <div class="question-header m-center">
       <div class="question-search">
-        <img src="https://www.imooc.com/static/img/wenda/wenda-logo.png" alt="">
+        <img src="../../assets/images/lianxi.png" alt="">
         <div class="search-box">
           <input type="text" placeholder="请输入你的问题">
           <i class="iconfont">&#xe63c;</i>

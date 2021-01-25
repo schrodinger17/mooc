@@ -2,7 +2,7 @@
   <div class="article m-center">
     <!-- 头部 -->
     <div class="article-header">
-      <img class="article-icon" src="https://www.imooc.com/static/img/article/article-logo.png" alt="">
+      <img class="article-icon" src="../../assets/images/luntan.png" alt="">
       <div class="search-container">
         <div class="search-box">
           <input type="text" placeholder="搜索感兴趣的知识和文章">

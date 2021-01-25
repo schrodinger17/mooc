@@ -3,7 +3,9 @@
     <!-- 背景阴影 -->
     <div class="bg-mask" :style="getBackgroundImage" />
 
-    <!-- 导航和轮播 -->
+    <img src="../../assets/images/banner.png" />
+    <!-- 
+
     <div class="home-container m-center">
       <Nav />
       <mooc-carousel :height="316" trigger="click" @change="handelCarouselChange">
@@ -15,38 +17,32 @@
       <Banner />
     </div>
 
-    <!--  实战导航 -->
+
     <course-list :list="lessonData.recommend" title="实战推荐" type="recommend" :position="0" />
 
-    <!-- 新上好课 -->
+
     <course-list :list="lessonData.new" title="新上好课" type="new" :position="1" />
 
-    <!-- 新手入门 -->
+  
     <course-list :list="lessonData.easy" title="新手入门" type="easy" :position="2" />
 
-    <!-- 技能提升 -->
+ 
     <course-list :list="lessonData.improve" title="技能提升" type="improve" :position="3" />
 
-    <!-- 前言技术 -->
+ 
     <course-list :list="lessonData.advanced" title="前沿技术" type="advanced" :position="4" />
 
-    <!-- 猿问和手记 -->
+
     <Article :article="articleList" />
 
-    <!-- 精英讲师 -->
+
     <Teacher :teacher-list="teacherList" />
 
-    <!-- 全明星 -->
-    <Student :allstar="allstar" />
+
+    <Student :allstar="allstar" /> -->
   </div>
 </template>
 <script>
-import Nav from './nav.vue'
-import Banner from './banner.vue'
-import CourseList from './course-list.vue'
-import Article from './article.vue'
-import Teacher from './teacher.vue'
-import Student from './student.vue'
 import { getSliderList, getHomeCourse, getArticle, getTeacher, getAllStar } from 'api/home.js'
 import { ERR_OK } from 'api/config.js'
 export default {
@@ -161,12 +157,6 @@ export default {
     }
   },
   components: {
-    Nav,
-    Banner,
-    CourseList,
-    Article,
-    Teacher,
-    Student
   }
 }
 </script>

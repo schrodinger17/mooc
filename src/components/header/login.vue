@@ -11,7 +11,7 @@
         <span class="login-text">下载APP</span>
       </a>
     </li> -->
-    <li class="item cart" @mouseenter="showMiniCart = true" @mouseleave="handleCarItemtMouseLeave">
+    <!-- <li class="item cart" @mouseenter="showMiniCart = true" @mouseleave="handleCarItemtMouseLeave">
       <a href="javascript:;">
         <i class="iconfont">&#xe63b;</i>
         <span class="login-text">购物车</span>
@@ -19,7 +19,7 @@
           <mini-cart v-if="showMiniCart" :list="cartList" @close="showMiniCart=false" />
         </div>
       </a>
-    </li>
+    </li> -->
     <template v-if="userInfo && userInfo.id">
       <li class="item bell">
         <router-link to="/notice">
@@ -109,15 +109,15 @@ export default {
   },
   methods: {
     // 购物车：项鼠标移出
-    handleCarItemtMouseLeave () {
-      this.timer = setTimeout(() => {
-        this.showMiniCart = false
-      }, 150)
-    },
+    // handleCarItemtMouseLeave () {
+    //   this.timer = setTimeout(() => {
+    //     this.showMiniCart = false
+    //   }, 150)
+    // },
     // 购物车：鼠标移入
-    handleCartMouseEnter () {
-      clearTimeout(this.timer)
-    },
+    // handleCartMouseEnter () {
+    //   clearTimeout(this.timer)
+    // },
     // 登录点击
     handleLoginClick () {
       this.setShowLogin(true)
@@ -171,7 +171,7 @@ export default {
     ...mapGetters(['userInfo'])
   },
   components: {
-    MiniCart: () => import('components/cart/cart.vue')
+    // MiniCart: () => import('components/cart/cart.vue')
   },
   beforeDestroy () {
     clearTimeout(this.timer)

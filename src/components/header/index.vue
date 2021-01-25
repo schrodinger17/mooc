@@ -3,7 +3,7 @@
     <!-- logo -->
     <div class="logo-box">
       <router-link to="/">
-        <img src="https://www.imooc.com/static/img/index/logo.png" height="72" alt="Logo">
+        <img src="../../assets/images/logo.png" height="72" alt="Logo">
       </router-link>
     </div>
 
@@ -11,14 +11,14 @@
     <m-nav v-if="navList.length" :list="navList" />
 
     <!-- 搜索框模块 -->
-    <search />
+    <!-- <search /> -->
 
     <!-- 登录模块 -->
     <login-area />
   </div>
 </template>
 <script>
-import Search from 'components/search/search.vue'
+// import Search from 'components/search/search.vue'
 import MNav from './nav.vue'
 import LoginArea from './login.vue'
 import { getHeader } from 'api/common.js'
@@ -50,7 +50,7 @@ export default {
   },
   components: {
     MNav,
-    Search,
+    // Search,
     LoginArea
   }
 }
@@ -67,7 +67,7 @@ export default {
     box-shadow: 0 4px 8px $shadow;
     .logo-box
       float: left;
-      width: 140px;
+      width: 200px;
       margin: 0 20px;
       height: 100%;
 </style>

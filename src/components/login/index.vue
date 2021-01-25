@@ -27,7 +27,7 @@
 </template>
 <script>
 import LoginWay from './login.vue'
-import QrcodeWay from './qrcode.vue'
+// import QrcodeWay from './qrcode.vue'
 import { mapMutations, mapGetters } from 'vuex'
 export default {
   data () {
@@ -46,21 +46,21 @@ export default {
       this.$emit('maskClick')
     },
     // 二维码点击事件
-    handleQrcodeClick () {
-      this.componentName = this.componentName === 'qrcode-way' ? 'login-way' : 'qrcode-way'
-    },
+    // handleQrcodeClick () {
+    //   this.componentName = this.componentName === 'qrcode-way' ? 'login-way' : 'qrcode-way'
+    // },
     // vuex
     ...mapMutations({
       'setShowLogin': 'login/SET_SHOW_LOGIN'
     })
   },
   computed: {
-    getQrcodeBackground () {
-      let background = this.componentName === 'qrcode-way' ? 'pcLogin.png' : 'erweima.png'
-      return {
-        background: `url('https://www.imooc.com/static/img/${background}') no-repeat 0 0`
-      }
-    },
+    // getQrcodeBackground () {
+    //   let background = this.componentName === 'qrcode-way' ? 'pcLogin.png' : 'erweima.png'
+    //   return {
+    //     background: `url('https://www.imooc.com/static/img/${background}') no-repeat 0 0`
+    //   }
+    // },
     threeTitle () {
       return this.currentTabIndex === 0 ? '手机短信登陆' : '其它登陆方式'
     },
@@ -69,7 +69,7 @@ export default {
   },
   components: {
     LoginWay,
-    QrcodeWay
+    // QrcodeWay
   }
 }
 </script>
@@ -160,13 +160,4 @@ export default {
               color: #00B33B;
             &.qq:hover
               color: #0088CC;
-      .qrcode-way
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 60px;
-        height: 60px;
-        background:url('https://www.imooc.com/static/img/erweima.png') no-repeat 0 0;
-        border-bottom-right-radius: 12px;
-        cursor: pointer; 
 </style>
