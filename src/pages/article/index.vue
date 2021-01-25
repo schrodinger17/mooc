@@ -4,10 +4,6 @@
     <div class="article-header">
       <img class="article-icon" src="../../assets/images/luntan.png" alt="">
       <div class="search-container">
-        <div class="search-box">
-          <input type="text" placeholder="搜索感兴趣的知识和文章">
-          <i class="iconfont">&#xe63c;</i>
-        </div>
         <router-link to="/editor">
           <span class="write-btn">写文章</span>
         </router-link>
