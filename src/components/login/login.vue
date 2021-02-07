@@ -24,7 +24,7 @@
           <el-checkbox v-model="loginForm.argement">
             同意
           </el-checkbox>
-          <span class="agreement">《慕课网注册协议》</span>
+          <span class="agreement">《智慧校园注册协议》</span>
         </template>
       </el-form-item>
     </el-form>

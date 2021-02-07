@@ -1,65 +1,21 @@
 <template>
   <div class="footer">
     <div class="footer-container m-center">
-      <div class="footer-links">
-        <ul>
-          <li
-            v-for="(item,index) in linkList"
-            :key="index"
-            class="link-item"
-          >
-            {{ item.title }}
-          </li>
-        </ul>
-      </div>
       <div class="copyright">
-        <p>© {{ year }} imooc.com  京ICP备 12003892号-11  北京奥鹏文化传媒有限公司</p>
-      </div>
-      <div class="share">
-        <div class="share-item wechart">
-          <span class="share-img" />
-          <p>官方微信</p>
-          <div class="wechart-code" />
-        </div>
-        <div class="share-item weibo">
-          <span class="share-img" />
-          <p>官方微博</p>
-        </div>
+        <p>© {{ year }} 开发者：今天天气不错队  </p>
+        <p>联系我们：&nbsp;&nbsp;Tel：18591780030 &nbsp;&nbsp;&nbsp;QQ：824653139&nbsp;&nbsp;&nbsp;E-mail：82465313@qq.com  </p>
+        <p>欢迎加入我们！</p>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { getFooter } from 'api/common.js'
-import { ERR_OK } from 'api/config.js'
 export default {
   data () {
-    return {
-      linkList: []
-    }
   },
   created () {
     this.year = new Date().getFullYear()
   },
-  mounted () {
-    this.getFooterData()
-  },
-  methods: {
-    // 获取底部版权数据
-    getFooterData () {
-      getFooter().then(res => {
-        let { code, data, msg } = res
-        if (code === ERR_OK) {
-          this.linkList = data
-        } else {
-          this.$message.error(msg)
-          this.linkList = []
-        }
-      }).catch(() => {
-        this.linkList = []
-      })
-    }
-  }
 }
 </script>
 
@@ -83,9 +39,9 @@ export default {
           &:hover
             color: $font-second-color;
       .copyright
-        margin-top: 8px;
+        margin-top: 0px;
         padding-left: 10px;
-        line-height: 24px;
+        line-height: 25px;
         color: $font-four-color;
         font-size: 12px;
       .share
